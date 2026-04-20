@@ -24,7 +24,7 @@ export default function Home() {
 
           <div className="flex gap-6 items-center">
             <a href="mailto:m.ohare@hotmail.co.uk" className="text-xs font-semibold uppercase tracking-[0.2em] text-muted hover:text-foreground transition-colors hidden sm:block">Email</a>
-            <a href="tel:07861701490" className="text-xs font-semibold uppercase tracking-[0.2em] text-muted hover:text-foreground transition-colors hidden sm:block">07861 701490</a>
+            <a href="#contact" className="text-xs font-semibold uppercase tracking-[0.2em] text-muted hover:text-foreground transition-colors hidden sm:block">07861 701490</a>
             <a href="/Mark_OHare_CV%202026.pdf" download className="text-xs font-semibold uppercase tracking-[0.2em] px-4 py-2 bg-accent text-background hover:bg-foreground transition-colors ml-4 inline-block text-center">
               Download Profile
             </a>
@@ -238,7 +238,7 @@ export default function Home() {
         </section>
 
         {/* CHRONOLOGY: Sciensus config box, trimmed bullets */}
-        <section id="experience" className="py-40 bg-surface border-t border-border/50">
+        <section id="chronology" className="py-40 bg-surface border-t border-border/50">
           <div className="container max-w-5xl mx-auto">
             <Reveal className="mb-32">
               <span className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-accent mb-6 block">Track Record</span>
