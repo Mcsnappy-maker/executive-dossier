@@ -53,7 +53,7 @@ export default function Home() {
               
               <Reveal delay={0.2}>
                 <p className="font-sans text-xl md:text-2xl text-foreground font-light leading-relaxed mb-10 max-w-lg">
-                  Senior operations leader turning community strategy into practical results.
+                  Senior operations leader turning community strategy into practical results, combining operational discipline with entrepreneurial judgement
                 </p>
               </Reveal>
 
@@ -61,7 +61,7 @@ export default function Home() {
                 <a href="#contact" className="px-8 py-4 text-[0.7rem] font-bold uppercase tracking-[0.2em] bg-[#EAE2D6] text-foreground rounded-xl hover:bg-accent hover:text-white transition-all duration-300">
                   Discuss Strategy
                 </a>
-                <a href="#experience" className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-muted hover:text-foreground transition-colors underline underline-offset-4">
+                <a href="#chronology" className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-muted hover:text-foreground transition-colors underline underline-offset-4">
                   View Track Record
                 </a>
               </Reveal>
