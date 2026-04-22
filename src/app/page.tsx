@@ -52,8 +52,11 @@ export default function Home() {
               </MaskReveal>
               
               <Reveal delay={0.2}>
-                <p className="font-sans text-xl md:text-2xl text-foreground font-light leading-relaxed mb-10 max-w-lg">
-                  Senior operations leader turning community strategy into practical results, combining operational discipline with entrepreneurial judgement
+                <p className="font-sans text-xl md:text-2xl text-foreground font-light leading-relaxed mb-6 max-w-xl">
+                  Community operations leader with deep experience in frontline services, local partnerships and safe, reliable building-based delivery.
+                </p>
+                <p className="font-sans text-lg text-muted font-light leading-relaxed mb-10 max-w-lg">
+                  I help community spaces run well day to day, support staff and volunteers, and turn growth plans into practical local impact.
                 </p>
               </Reveal>
 
@@ -94,6 +97,31 @@ export default function Home() {
                 <span className="text-[0.65rem] font-bold uppercase tracking-widest text-muted">Continuation Funding</span>
               </div>
             </Reveal>
+          </div>
+        </section>
+
+        {/* CCCG SPECIFIC */}
+        <section className="py-40 bg-background border-t border-border/50">
+          <div className="container max-w-6xl mx-auto">
+            <Reveal className="mb-24">
+              <span className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-accent mb-6 block">Strategic Fit</span>
+              <h2 className="font-display text-5xl md:text-7xl tracking-tight">What I would bring to CCCG</h2>
+            </Reveal>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+              {[
+                { title: "Building Operations", text: "Welcoming, well-run building operations that serve as a reliable local hub." },
+                { title: "Safety & Standards", text: "Strong standards around safety, safeguarding and presentation." },
+                { title: "Coordination", text: "Calm coordination of activities, hires, volunteers and partners." },
+                { title: "Executive Support", text: "Practical support to Board and Development Officer." },
+                { title: "Growth", text: "Focus on sustainable growth and community participation." }
+              ].map((item, i) => (
+                <Reveal key={i} delay={0.1 * i} className="p-8 border border-border bg-surface/50">
+                  <strong className="block text-accent mb-4 text-[0.7rem] font-bold uppercase tracking-[0.2em]">{item.title}</strong>
+                  <p className="text-[0.9rem] text-muted leading-relaxed font-light">{item.text}</p>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -234,6 +262,31 @@ export default function Home() {
                 <p className="text-[0.95rem] text-muted leading-relaxed font-light">It proves I know how to cut through the noise, capture attention, and clearly showcase the organisation's frontline impact. Beyond standard management, this translates into direct employer brand attraction, wider candidate reach, and the ability to influence cross-sector dialogue in real time.</p>
               </div>
             </Reveal>
+          </div>
+        </section>
+
+        {/* 90 DAY VIEW */}
+        <section className="py-40 bg-surface border-t border-border/50">
+          <div className="container max-w-6xl mx-auto">
+            <Reveal className="mb-24">
+              <span className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-accent mb-6 block">Implementation</span>
+              <h2 className="font-display text-5xl md:text-7xl tracking-tight">First 90 days</h2>
+            </Reveal>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+              {[
+                { title: "Review", text: "Review building operations, bookings, standards and risks." },
+                { title: "Connect", text: "Meet Board, staff, volunteers, user groups and partners." },
+                { title: "Stabilise", text: "Stabilise routines, reporting and communication." },
+                { title: "Optimise", text: "Identify quick wins on accessibility, utilisation and user experience." },
+                { title: "Growth", text: "Support a practical growth plan for activities and sustainability." }
+              ].map((item, i) => (
+                <Reveal key={i} delay={0.1 * i} className="p-8 border border-border bg-background">
+                  <strong className="block text-accent mb-4 text-[0.7rem] font-bold uppercase tracking-[0.2em]">{item.title}</strong>
+                  <p className="text-[0.9rem] text-muted leading-relaxed font-light">{item.text}</p>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
