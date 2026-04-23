@@ -312,7 +312,7 @@ export default function Home() {
                 <div className="absolute -left-[1px] top-10 w-1 h-16 bg-accent" />
                 <span className="text-[0.65rem] font-bold uppercase tracking-[0.3em] text-accent mb-4 block">Enterprise with operational control</span>
                 <p className="text-[0.95rem] text-muted font-light leading-relaxed">
-                  I combine entrepreneurial third-sector development through <strong>Kelloch</strong> with disciplined operational leadership at <strong>Sciensus</strong>. I have structured my work carefully so that I can focus my time where it adds most value—supporting high-standard, compliance-critical environments—while maintaining clear oversight and accountability across all delivery.
+                  I combine entrepreneurial third-sector development through <strong>Kelloch</strong> with disciplined operational leadership at <strong>Sciensus</strong>. I have structured my work carefully so that I can focus my time where it adds most value: supporting high-standard, compliance-critical environments, while maintaining clear oversight and accountability across all delivery.
                 </p>
               </div>
             </Reveal>
