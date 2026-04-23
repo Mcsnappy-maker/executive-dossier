@@ -306,20 +306,20 @@ export default function Home() {
               <h2 className="font-display text-5xl lg:text-7xl tracking-tight">A chronology of trust.</h2>
             </Reveal>
 
-            {/* Current Configuration Box */}
+            {/* Current Orientation Box */}
             <Reveal className="mb-32 flex lg:justify-end">
               <div className="p-10 bg-surface border border-border inline-block max-w-2xl relative shadow-sm">
                 <div className="absolute -left-[1px] top-10 w-1 h-16 bg-accent" />
-                <span className="text-[0.65rem] font-bold uppercase tracking-[0.3em] text-accent mb-4 block">Current Configuration Layer</span>
+                <span className="text-[0.65rem] font-bold uppercase tracking-[0.3em] text-accent mb-4 block">Enterprise with operational control</span>
                 <p className="text-[0.95rem] text-muted font-light leading-relaxed">
-                  Alongside directing <strong>Kelloch</strong>, I hold a developmental leadership position with multinational healthcare provider <strong>Sciensus</strong>. I maintain senior operational, compliance, and health & safety oversight of a live clinical warehouse, directly supporting a team of 10 professional logistics drivers.
+                  I combine entrepreneurial third-sector development through <strong>Kelloch</strong> with disciplined operational leadership at <strong>Sciensus</strong>. I have structured my work carefully so that I can focus my time where it adds most value—supporting high-standard, compliance-critical environments—while maintaining clear oversight and accountability across all delivery.
                 </p>
               </div>
             </Reveal>
 
             <div className="relative">
               {[
-                { year: "2024", role: "Managing Director", org: "Kelloch Recruitment & Training", desc: "Founded a values-led consultancy supporting third-sector organisations with ethical recruitment and redesign.", bullets: ["Cut average cost-per-hire by 45% through direct sourcing.", "Designed and launched Talent Direct ecosystem."] },
+                { year: "2024", role: "Managing Director", org: "Kelloch Recruitment & Training", desc: "I focus on strengthening third-sector organisations through development and better systems, using automation and streamlined delivery to maintain focus on strategy and quality.", bullets: ["Designed and launched Talent Direct recruitment platform.", "Cut average cost-per-hire by 45% through process redesign."] },
                 { year: "2022", role: "Operations Manager", org: "CERT", desc: "I literally took a concept from paper and built it into the region's largest pre-employability health and wellbeing project.", bullets: ["Scaled infrastructure to support 379 participants annually.", "Contributed to £850,000+ in continuation funding.", "Coordinated in-house and offsite course delivery, managing venue bookings, facilitator scheduling, and maintaining full health and safety compliance across all programme locations."] },
                 { year: "2020", role: "Service Manager", org: "Lifelink", desc: "Assumed full Service Management responsibility within a four-person Senior Management Team.", bullets: ["Stabilised delivery through an exceptionally demanding pandemic operating period.", "Strengthened safeguarding and governance reporting.", "Managed the operational environment for onsite counselling, overseeing room allocation, session preparation, and ensuring spaces met clinical and professional standards; provided direct line management and in-building support for the counselling team."] },
                 { year: "2014", role: "Community Justice Specialist", org: "The Wise Group", desc: "Coordinated the New Routes project delivering wellbeing programmes with people in custody and transition.", bullets: [] },
