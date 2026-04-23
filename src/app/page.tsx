@@ -252,14 +252,22 @@ export default function Home() {
         <section className="py-40 border-t border-border/50">
           <div className="container max-w-4xl mx-auto text-center">
             <Reveal>
-              <span className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-accent mb-6 block">Scale & Influence</span>
-              <h2 className="font-display text-4xl lg:text-5xl tracking-tight mb-10">Provable reach in context.</h2>
-              <p className="text-2xl text-muted font-light leading-relaxed mb-8">
-                Generating <strong className="text-foreground font-normal">373,900+ weekly impressions</strong> and holding an active professional audience of <strong className="text-foreground font-normal">8,260+ followers</strong> and engaged newsletter subscribers, I use LinkedIn deliberately to share practice and shape senior cross-sector dialogue.
-              </p>
-              <div className="p-6 bg-surface border border-border/50 inline-block text-left mx-auto max-w-2xl">
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-foreground block mb-3">Why this matters to a board:</span>
-                <p className="text-[0.95rem] text-muted leading-relaxed font-light">It proves I know how to cut through the noise, capture attention, and clearly showcase the organisation's frontline impact. Beyond standard management, this translates into direct employer brand attraction, wider candidate reach, and the ability to influence cross-sector dialogue in real time.</p>
+              <span className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-accent mb-6 block">Digital Engagement</span>
+              <h2 className="font-display text-4xl lg:text-5xl tracking-tight mb-10">Digital reach with practical value</h2>
+              <div className="max-w-3xl mx-auto mb-12">
+                <p className="text-xl text-foreground font-light leading-relaxed mb-6">
+                  I bring practical website and social media capability and use digital channels to support real-world community engagement. In practice, that means promoting activities clearly, improving visibility, helping people find and access what is on offer, supporting bookings and partnerships, and strengthening the organisation’s public presence.
+                </p>
+                <p className="text-[0.95rem] text-muted font-light">
+                  <strong className="text-foreground font-semibold">Evidence:</strong> experience building online engagement at scale, including content generating 373,900+ weekly impressions and an active audience of 8,260+ followers and subscribers.
+                </p>
+              </div>
+              <div className="p-10 bg-surface border border-border/50 inline-block text-left mx-auto max-w-2xl relative shadow-sm">
+                <div className="absolute -left-[1px] top-8 w-1 h-12 bg-accent opacity-50" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-foreground block mb-4">Why this matters in a community setting:</span>
+                <p className="text-[0.95rem] text-muted leading-relaxed font-light">
+                  Strong digital communication helps a centre stay visible, welcoming and relevant. It supports promotion of activities and events, clearer communication with local people and partners, better use of space and bookings, and a stronger public presence that can contribute to participation, trust and sustainability.
+                </p>
               </div>
             </Reveal>
           </div>
