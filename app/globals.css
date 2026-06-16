@@ -909,6 +909,31 @@ body:has(.exec-page) {
   text-decoration: none;
 }
 
+.exec-linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exec-linkedin-badge {
+  display: inline-grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  border-radius: 4px;
+  background: #071936;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.exec-footer .exec-linkedin-badge {
+  background: #f4c46d;
+  color: #06172f;
+}
+
 .exec-profile {
   padding-top: 20px;
 }

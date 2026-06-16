@@ -90,7 +90,9 @@ const digitalSkills = [
   "Website development, digital content and online service design.",
   "Social media management, community engagement and audience communication.",
   "Professionally trained and award-winning photographer, Adobe Creative Suite, visual storytelling and brand presentation.",
-  "Working knowledge of React and TypeScript, supporting practical digital delivery and automation.",
+  "Expert in AI and automation, using practical systems thinking to improve services, workflows and decision-making.",
+  "Successfully built and managed my own websites, including complex database and interactive website work for local social enterprises.",
+  "Working knowledge of React and TypeScript, supporting practical digital delivery and smarter operational systems.",
 ];
 
 const currentPractice = [
@@ -103,7 +105,8 @@ const currentPractice = [
     bullets: [
       "Built a values-led platform focused on better hiring, stronger managers and clearer organisational decisions.",
       "Created resources supporting recruitment, workforce planning, leadership confidence and service sustainability.",
-      "Managed website development, communications, stakeholder relationships, finance and day-to-day operations independently.",
+      "Built and managed the digital presence independently, including website development, structured content and practical automation.",
+      "Managed communications, stakeholder relationships, finance and day-to-day operations independently.",
     ],
   },
   {
@@ -295,7 +298,10 @@ export function InteractiveCVApp() {
               <button type="button" onClick={copyEmail}>✉ {profile.email}</button>
               <a href={`tel:${profile.phone.replaceAll(" ", "")}`}>☎ {profile.phone}</a>
               <span>⌖ {profile.location}</span>
-              <a href={profile.linkedIn} target="_blank" rel="noreferrer">LinkedIn Profile</a>
+              <a className="exec-linkedin-link" href={profile.linkedIn} target="_blank" rel="noreferrer">
+                <span className="exec-linkedin-badge" aria-hidden="true">in</span>
+                LinkedIn Profile
+              </a>
             </div>
 
             <div className="exec-profile">
@@ -409,7 +415,10 @@ export function InteractiveCVApp() {
           </blockquote>
           <div>
             <a href={`mailto:${profile.email}`}>{profile.email}</a>
-            <a href={profile.linkedIn} target="_blank" rel="noreferrer">View LinkedIn Profile</a>
+            <a className="exec-linkedin-link" href={profile.linkedIn} target="_blank" rel="noreferrer">
+              <span className="exec-linkedin-badge" aria-hidden="true">in</span>
+              View LinkedIn Profile
+            </a>
           </div>
         </section>
       </div>
