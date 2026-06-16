@@ -40,8 +40,8 @@ const impactStories = [
   {
     title: "Moved wellbeing delivery online during COVID-19",
     body:
-      "At Lifelink, I designed, implemented and trained staff on Microsoft Teams and Zoom systems so school-based and therapeutic services could continue during lockdown.",
-    result: "Enabled continuity of support for schools, clients and communities during a period of sustained disruption.",
+      "At Lifelink, I helped design and facilitate a successful wellbeing portfolio as part of a wider team, while managing several high-profile Glasgow school therapeutic contracts.",
+    result: "Introduced Teams and Zoom delivery processes that helped therapeutic services continue during a period of sustained disruption.",
   },
   {
     title: "Built trust across complex partnership environments",
@@ -142,10 +142,10 @@ const experience = [
     intro:
       "Promoted from Assistant Manager to Service Manager within one year and became part of a four-person Senior Management Team.",
     bullets: [
-      "Managed a defined Glasgow service area covering school-based wellbeing support and therapeutic services.",
+      "Managed several high-profile Glasgow school therapeutic contracts alongside wider wellbeing service delivery.",
       "Supported delivery of large-scale commissioned wellbeing contracts during high demand and pandemic disruption.",
-      "Designed and implemented the move to online wellbeing delivery using Microsoft Teams and Zoom.",
-      "Trained staff and practitioners on new systems, enabling continuity of support during lockdown.",
+      "Helped design and facilitate a successful wellbeing portfolio as part of a wider team.",
+      "Introduced Microsoft Teams and Zoom delivery processes, enabling therapeutic services to continue during lockdown.",
       "Strengthened safeguarding processes, risk registers and governance reporting.",
     ],
   },
