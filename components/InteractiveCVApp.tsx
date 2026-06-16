@@ -89,7 +89,7 @@ const strengths = [
 const digitalSkills = [
   "Website development, digital content and online service design.",
   "Social media management, community engagement and audience communication.",
-  "Adobe Creative Suite, photography, visual storytelling and brand presentation.",
+  "Professionally trained and award-winning photographer, Adobe Creative Suite, visual storytelling and brand presentation.",
   "Working knowledge of React and TypeScript, supporting practical digital delivery and automation.",
 ];
 
@@ -154,7 +154,7 @@ const experience = [
     role: "Earlier Third-Sector, Employability & Community Development Experience",
     organisation: "Founder, adviser and delivery roles across Scotland",
     intro:
-      "Held founder, adviser and delivery roles across community development, employability, volunteering, justice, advice and youth programmes.",
+      "Held founder, adviser and delivery roles across community development, employability, volunteering, justice, advice and youth programmes, alongside practice as a professionally trained and award-winning photographer.",
     bullets: [
       "Founded and led Holistic Enterprises Scotland, delivering training, employability, wellbeing and youth development programmes.",
       "Supported volunteer development, governance and safeguarding improvement with Voluntary Action North Lanarkshire.",
