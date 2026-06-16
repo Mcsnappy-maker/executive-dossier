@@ -99,7 +99,7 @@ const currentPractice = [
   {
     title: "Founder & Lead | Kelloch",
     dates: "July 2024 - Present",
-    emphasis: "Primary current focus",
+    emphasis: "Current venture and ongoing leadership work",
     text:
       "Developed Kelloch as a practical third-sector workforce and leadership initiative supporting charities, CICs and social enterprises with hiring, people development, service improvement and clearer decision-making.",
     bullets: [
@@ -112,7 +112,7 @@ const currentPractice = [
   {
     title: "Lead Clinical Logistics Driver | Sciensus",
     dates: "July 2024 - Present",
-    emphasis: "Supporting current role",
+    emphasis: "Current full-time regulated healthcare logistics role",
     text:
       "Regulated healthcare logistics role requiring reliability, compliance, route coordination, patient-facing professionalism and colleague support, alongside day-to-day responsibility for maintaining a factory unit.",
     bullets: [

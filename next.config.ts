@@ -4,9 +4,7 @@ const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
   assetPrefix: "./",
-  experimental: {
-    typedRoutes: true
-  }
+  typedRoutes: true
 };
 
 export default nextConfig;
