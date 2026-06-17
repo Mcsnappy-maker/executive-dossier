@@ -1476,23 +1476,30 @@ body:has(.exec-page) {
   }
 
   .exec-tagline {
-    gap: 9px 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
     margin-top: 20px;
   }
 
   .exec-tagline span {
-    min-height: 18px;
-    padding: 0 12px;
-    border-right-color: #b8c0cb;
-    border-right-width: 1px;
-    font-size: 0.86rem;
-    line-height: 1.2;
+    justify-content: center;
+    min-height: 32px;
+    padding: 7px 10px;
+    border: 1px solid #d8dee6;
+    border-radius: 999px;
+    background: #f6f8fa;
+    color: #071936;
+    font-size: 0.8rem;
+    font-weight: 780;
+    line-height: 1.12;
+    text-align: center;
   }
 
   .exec-contact-strip {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px 20px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
     margin-top: 24px;
     padding: 16px 0;
     border-color: #d8dee6;
@@ -1503,9 +1510,44 @@ body:has(.exec-page) {
     display: inline-flex;
     align-items: center;
     min-width: 0;
-    gap: 8px;
+    gap: 10px;
+    min-height: 38px;
+    padding: 8px 12px;
+    border: 1px solid #e3e8ee !important;
+    border-radius: 8px;
+    background: #ffffff !important;
+    color: #071936 !important;
+    font-size: 0.86rem;
+    font-weight: 680;
     overflow-wrap: anywhere;
-    line-height: 1.25;
+    line-height: 1.18;
+  }
+
+  .exec-contact-strip button::before,
+  .exec-contact-strip a[href^="tel:"]::before,
+  .exec-contact-strip > span::before {
+    display: inline-grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+    border-radius: 6px;
+    background: #eef2f6;
+    color: #071936;
+    font-size: 0.72rem;
+    font-weight: 900;
+  }
+
+  .exec-contact-strip button::before {
+    content: "@";
+  }
+
+  .exec-contact-strip a[href^="tel:"]::before {
+    content: "T";
+  }
+
+  .exec-contact-strip > span::before {
+    content: "P";
   }
 
   .exec-profile {

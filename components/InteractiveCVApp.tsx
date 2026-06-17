@@ -297,9 +297,9 @@ export function InteractiveCVApp() {
             </div>
 
             <div className="exec-contact-strip" aria-label="Contact details">
-              <button type="button" onClick={copyEmail}>✉ {profile.email}</button>
-              <a href={`tel:${profile.phone.replaceAll(" ", "")}`}>☎ {profile.phone}</a>
-              <span>⌖ {profile.location}</span>
+              <button type="button" onClick={copyEmail}>{profile.email}</button>
+              <a href={`tel:${profile.phone.replaceAll(" ", "")}`}>{profile.phone}</a>
+              <span>{profile.location}</span>
               <a className="exec-linkedin-link" href={profile.linkedIn} target="_blank" rel="noreferrer">
                 <span className="exec-linkedin-badge" aria-hidden="true">in</span>
                 LinkedIn Profile
