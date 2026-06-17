@@ -155,15 +155,17 @@ const experience = [
   {
     year: "2000 - 2020",
     role: "Earlier Third-Sector, Employability & Community Development Experience",
-    organisation: "Founder, adviser and delivery roles across Scotland",
+    organisation: "Founder, adviser, facilitator and delivery roles across Scotland",
     intro:
-      "Held founder, adviser and delivery roles across community development, employability, volunteering, justice, advice and youth programmes, alongside practice as a professionally trained and award-winning photographer.",
+      "Held founder, adviser, facilitator and delivery roles across community development, employability, volunteering, justice, advice and youth programmes. Built and delivered issue-based workshops, training programmes and community interventions focused on employability, wellbeing, confidence, resilience, social inclusion, youth development and practical life skills.",
     bullets: [
-      "Founded and led Holistic Enterprises Scotland, delivering training, employability, wellbeing and youth development programmes.",
+      "Founded and led Holistic Enterprises Scotland, designing and delivering training, employability, wellbeing and youth development programmes across Scotland.",
+      "Designed and facilitated issue-based workshops and group programmes for young people, vulnerable adults, jobseekers, community groups and justice-sector participants.",
       "Supported volunteer development, governance and safeguarding improvement with Voluntary Action North Lanarkshire.",
-      "Delivered prison-based employability and mentoring programmes within HM Polmont and other justice settings.",
-      "Provided advice, advocacy and employability support through Citizens Advice Bureau and Routes to Work.",
+      "Delivered prison-based employability, mentoring and personal development programmes within HM Polmont and other justice settings.",
+      "Provided advice, advocacy and employability support to vulnerable individuals through Citizens Advice Bureau and Routes to Work.",
       "Built long-term partnerships with schools, police, social services, councils, prisons and community organisations.",
+      "Turned complex social issues into structured, accessible learning experiences that helped participants build confidence, make decisions and move towards positive outcomes.",
     ],
   },
 ];
