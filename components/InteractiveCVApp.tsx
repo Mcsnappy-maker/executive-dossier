@@ -3,7 +3,7 @@
 const profile = {
   name: "Mark O’Hare",
   title: "Third Sector Operations & People Leader",
-  strap: "Service Delivery | Workforce Development | Partnerships | Governance | Community Impact",
+  strap: "Service Design & Delivery | Workforce Development | Facilitation | Partnerships | Governance | Digital Improvement",
   contact: "m.ohare@hotmail.co.uk | 07861 701490 | North Lanarkshire / Scotland |",
   email: "m.ohare@hotmail.co.uk",
   phone: "07861 701490",
@@ -13,17 +13,17 @@ const profile = {
 
 const profileParagraphs = [
   "Experienced third-sector operations and people leader with over 25 years’ experience across community services, employability, wellbeing, volunteering, justice and organisational development. I have taken services from concept into delivery, led multi-partner pilots, managed staff and practitioners, supported boards, developed partnerships and helped organisations improve delivery under real-world pressure.",
-  "My strengths sit across service operations, workforce development, governance reporting, safeguarding, partnership building, digital service improvement and community engagement. I have worked with councils, NHS bodies, schools, police, prisons, funders, trustees and local organisations, always with a focus on practical delivery and people-centred outcomes.",
+  "My strengths sit across service operations, workforce development, design and facilitation, governance reporting, safeguarding, partnership building, digital service improvement and community engagement. I have worked with councils, NHS bodies, schools, police, prisons, funders, trustees and local organisations, always with a focus on practical delivery and people-centred outcomes.",
   "I bring a grounded leadership style: calm under pressure, clear with expectations, strong on relationships and able to turn complex people, service or delivery issues into workable action.",
 ];
 
 const selectedImpact = [
-  "Took CERT’s employability and wellbeing programme from paper concept into the area’s largest integrated service of its kind.",
-  "Project-managed the original CERT pilot with nine local partner organisations, building the foundations for wider delivery.",
-  "Grew the CERT programme to support 379 participants annually.",
+  "Redesigned and implemented CERT’s employability and wellbeing programme, turning it from paper concept into the area’s largest integrated service of its kind.",
+  "Led the original CERT pilot with nine local partner organisations, building the foundations for wider delivery.",
+  "Built the delivery model that scaled to support 379 participants annually.",
   "Contributed to over £850k in continuation funding across three years.",
   "Managed a defined Glasgow service area at Lifelink, overseeing school-based and therapeutic wellbeing services delivered through major commissioned contracts.",
-  "Designed, implemented and trained staff on new digital delivery systems at Lifelink, enabling wellbeing services to move online during COVID-19.",
+  "Designed and rolled out the wellbeing portfolio at Lifelink, trained the wider team, and enabled the team to deliver the core wellbeing sessions.",
   "Promoted into senior operational roles within one year at both CERT and Lifelink.",
   "Reported directly to boards and trustees on safeguarding, risk, performance and delivery.",
   "Built partnerships across councils, NHS, schools, police, prisons and third-sector organisations.",
@@ -71,10 +71,10 @@ const experience = [
     title: "Operations Manager | CERT – Clackmannanshire Economic Regeneration Trust",
     dates: "January 2022 – July 2024",
     intro:
-      "Promoted from Project Manager to Operations Manager within one year, reporting directly to the Chair and Board. Took CERT’s employability and wellbeing programme from a paper concept into the area’s largest integrated service of its kind, project-managing the original pilot with a cohort of nine local partners and leading its growth into full operational delivery.",
+      "Promoted from Project Manager to Operations Manager within one year, reporting directly to the Chair and Board. Redesigned and implemented CERT’s employability and wellbeing programme, taking it from a paper concept into the area’s largest integrated service of its kind, leading the original pilot with a cohort of nine local partners and driving its growth into full operational delivery.",
     bullets: [
-      "Project-managed the original pilot across nine local partner organisations, coordinating delivery, relationships, reporting and shared learning.",
-      "Built and designed the programme from early-stage concept into a regional employability and wellbeing service supporting 379 participants annually.",
+      "Redesigned and implemented the original pilot across nine local partner organisations, coordinating delivery, relationships, reporting and shared learning.",
+      "Built the programme from early-stage concept into a regional employability and wellbeing service supporting 379 participants annually.",
       "Developed and maintained key partnerships with Clackmannanshire Council, NHS Forth Valley and third-sector delivery partners.",
       "Contributed to over £850k in continuation funding across three years.",
       "Led safeguarding, risk governance, trustee reporting, compliance and delivery assurance.",
@@ -91,6 +91,7 @@ const experience = [
       "Managed delivery across an allocated area of Glasgow, including school-based wellbeing support and therapeutic services.",
       "Oversaw service performance, practitioner coordination, safeguarding, quality standards and contract expectations.",
       "Supported delivery of large-scale commissioned wellbeing contracts during a period of high demand and pandemic disruption.",
+      "Designed and rolled out the wellbeing portfolio, trained the wider team, and enabled the team to deliver the core wellbeing sessions.",
       "Designed and implemented the move to online wellbeing delivery during COVID-19, introducing Microsoft Teams and Zoom across staff and practitioner teams.",
       "Trained staff and practitioners to use new digital systems confidently, enabling continuity of support for schools, clients and communities during lockdown.",
       "Supported a therapeutic workforce ranging from 15 to 100 practitioners across changing service demands.",
@@ -103,13 +104,15 @@ const experience = [
     title: "Earlier Third-Sector, Employability, Community & Business Development Experience",
     dates: "2000 – 2020",
     intro:
-      "Held founder, adviser and delivery roles across community development, employability, volunteering, justice, advice and youth programmes.",
+      "Held founder, adviser, facilitator and delivery roles across community development, employability, volunteering, justice, advice and youth programmes. Built and delivered issue-based workshops, training programmes and community interventions focused on employability, wellbeing, confidence, resilience, social inclusion, youth development and practical life skills.",
     bullets: [
-      "Founded and led Holistic Enterprises Scotland, delivering training, employability, wellbeing and youth development programmes across Scotland.",
+      "Founded and led Holistic Enterprises Scotland, designing and delivering training, employability, wellbeing and youth development programmes across Scotland.",
+      "Designed and facilitated issue-based workshops and group programmes for young people, vulnerable adults, jobseekers, community groups and justice-sector participants.",
       "Supported volunteer development, governance and safeguarding improvement with Voluntary Action North Lanarkshire.",
-      "Delivered prison-based employability and mentoring programmes within HM Polmont and other justice settings.",
+      "Delivered prison-based employability, mentoring and personal development programmes within HM Polmont and other justice settings.",
       "Provided advice, advocacy and employability support to vulnerable individuals through Citizens Advice Bureau and Routes to Work.",
       "Built long-term partnerships with schools, police, social services, councils, prisons and community organisations.",
+      "Turned complex social issues into structured, accessible learning experiences that helped participants build confidence, make decisions and move towards positive outcomes.",
     ],
   },
 ];
