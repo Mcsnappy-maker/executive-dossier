@@ -10,7 +10,7 @@ const profile = {
   summary:
     "Experienced third-sector operations and people leader with over 25 years of experience across community services, employability, wellbeing, volunteering, justice and organisational development. I have taken services from concept into delivery, led multi-partner pilots, managed staff and practitioners, supported boards, developed partnerships and helped organisations improve delivery under real-world pressure.",
   supporting:
-    "My strengths sit across service operations, workforce development, governance reporting, safeguarding, partnership building, digital service improvement and community engagement. I bring a grounded leadership style: calm under pressure, clear with expectations, strong on relationships and able to turn complex people, service or delivery issues into workable action.",
+    "My strengths sit across service operations, workforce development, design and facilitation, governance reporting, safeguarding, partnership building, digital service improvement and community engagement. I bring a grounded leadership style: calm under pressure, clear with expectations, strong on relationships and able to turn complex people, service or delivery issues into workable action.",
   location: "North Lanarkshire / Scotland",
   email: "m.ohare@hotmail.co.uk",
   phone: "07861 701490",
