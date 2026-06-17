@@ -6,7 +6,7 @@ const profile = {
   name: "Mark O'Hare",
   title: "Third Sector Operations & People Leader",
   strap:
-    "Service Delivery | Workforce Development | Partnerships | Governance | Digital Improvement",
+    "Service Design & Delivery | Workforce Development | Facilitation | Partnerships | Governance | Digital Improvement",
   summary:
     "Experienced third-sector operations and people leader with over 25 years of experience across community services, employability, wellbeing, volunteering, justice and organisational development. I have taken services from concept into delivery, led multi-partner pilots, managed staff and practitioners, supported boards, developed partnerships and helped organisations improve delivery under real-world pressure.",
   supporting:
@@ -28,8 +28,8 @@ const impactStories = [
   {
     title: "Built a regional employability and wellbeing service from concept",
     body:
-      "At CERT, I project-managed the original pilot with nine partner organisations and helped grow it from paper concept into the area's largest integrated service of its kind.",
-    result: "Scaled delivery to support 379 participants annually with stronger partner coordination and operational clarity.",
+      "At CERT, I redesigned and implemented the original pilot with nine partner organisations, turning a paper concept into the area's largest integrated employability and wellbeing service of its kind.",
+    result: "Built the delivery model that scaled to support 379 participants annually with stronger partner coordination and operational clarity.",
   },
   {
     title: "Supported continuity, confidence and service sustainability",

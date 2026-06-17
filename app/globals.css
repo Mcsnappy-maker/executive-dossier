@@ -1476,16 +1476,16 @@ body:has(.exec-page) {
   }
 
   .exec-tagline {
-    gap: 10px 0;
+    gap: 9px 0;
     margin-top: 20px;
   }
 
   .exec-tagline span {
     min-height: 18px;
-    padding: 0 14px;
+    padding: 0 12px;
     border-right-color: #b8c0cb;
     border-right-width: 1px;
-    font-size: 0.91rem;
+    font-size: 0.86rem;
     line-height: 1.2;
   }
 
