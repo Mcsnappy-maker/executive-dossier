@@ -95,6 +95,57 @@ const digitalSkills = [
   "Working knowledge of React and TypeScript, supporting practical digital delivery and smarter operational systems.",
 ];
 
+const navItems = [
+  { href: "#overview", label: "Overview" },
+  { href: "#impact", label: "Evidence" },
+  { href: "#experience", label: "Journey" },
+  { href: "#capability", label: "Capability" },
+  { href: "#edge", label: "Edge" },
+  { href: "#contact", label: "Contact" },
+];
+
+const sectionFrames = {
+  profile: "A practical operator who turns community strategy into delivery.",
+  impact: "Proof across growth, funding, partnerships and digital change.",
+  journey: "Twenty-five years across frontline, management, founder and regulated delivery roles.",
+  capability: "Strongest where people, systems and operational pressure meet.",
+  edge: "A rare mix of service leadership, creative communication and practical digital build ability.",
+};
+
+const capabilityMap = [
+  {
+    axis: "People",
+    items: ["Workforce development", "Facilitation", "Community engagement", "Partnership building"],
+  },
+  {
+    axis: "Systems",
+    items: ["Digital improvement", "Reporting", "Automation", "Online service design"],
+  },
+  {
+    axis: "Delivery",
+    items: ["Service operations", "Safeguarding", "Compliance", "Risk governance"],
+  },
+  {
+    axis: "Strategy",
+    items: ["Funding", "Board reporting", "Programme redesign", "Service sustainability"],
+  },
+];
+
+const digitalEdge = [
+  {
+    title: "Operational leadership",
+    text: "Service delivery, safeguarding, compliance, governance reporting and practical decision-making under pressure.",
+  },
+  {
+    title: "Creative communication",
+    text: "Award-winning photography, Adobe Creative Suite, visual storytelling, audience engagement and brand presentation.",
+  },
+  {
+    title: "Digital systems",
+    text: "AI, automation, React, TypeScript, websites, databases, online systems and digital service improvement.",
+  },
+];
+
 const currentPractice = [
   {
     title: "Founder & Lead | Kelloch",
@@ -187,7 +238,7 @@ const qualifications = [
   { title: "Additional CPD", detail: "Available on request", type: "Continuing development" },
 ];
 
-const iconSet = ["⚙", "●●", "◆", "▣", "■", "◈", "◍", "◎"];
+const iconSet = ["", "", "", "", "", "", "", ""];
 
 function parseCounter(value: string) {
   const match = value.match(/(\d+)/);
@@ -280,19 +331,47 @@ export function InteractiveCVApp() {
 
   return (
     <main className="exec-page">
+      <nav className="exec-command-rail" aria-label="Dossier sections">
+        <span>Executive Dossier</span>
+        {navItems.map((item, index) => (
+          <a key={item.href} href={item.href}>
+            <small>{String(index + 1).padStart(2, "0")}</small>
+            {item.label}
+          </a>
+        ))}
+        <button type="button" onClick={() => window.print()}>Download Profile</button>
+      </nav>
+
       <div className="exec-sheet">
         <section id="overview" className="exec-hero" data-reveal>
           <div className="exec-photo-wrap">
             <img className="exec-photo" src="/mark-ohare-headshot.png" alt="Mark O'Hare" />
+            <div className="exec-photo-stamp">Verified Impact</div>
           </div>
 
           <div className="exec-hero-content">
+            <p className="exec-dossier-label">Leadership Dossier / 2026</p>
             <h1>{profile.name}</h1>
             <p className="exec-title">{profile.title}</p>
+            <p className="exec-positioning">{sectionFrames.profile}</p>
 
             <div className="exec-tagline" aria-label="Core disciplines">
               {tags.map((tag) => (
                 <span key={tag}>{tag}</span>
+              ))}
+            </div>
+
+            <div className="exec-hero-actions">
+              <button type="button" onClick={() => window.print()}>Download profile</button>
+              <a href="#impact">View evidence</a>
+            </div>
+
+            <div className="exec-proof-strip" aria-label="Headline proof">
+              {proofPoints.slice(0, 3).map((item) => (
+                <div key={item.label}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </div>
               ))}
             </div>
 
@@ -308,6 +387,7 @@ export function InteractiveCVApp() {
 
             <div className="exec-profile">
               <h2>Executive Profile</h2>
+              <strong>{sectionFrames.profile}</strong>
               <p>{profile.summary}</p>
             </div>
           </div>
@@ -326,7 +406,11 @@ export function InteractiveCVApp() {
         </section>
 
         <section id="impact" className="exec-section" data-reveal>
-          <h2 className="exec-section-title">Selected Impact</h2>
+          <div className="exec-section-head">
+            <span>01 / Operational Evidence</span>
+            <h2 className="exec-section-title">Selected Impact</h2>
+            <p>{sectionFrames.impact}</p>
+          </div>
           <div className="exec-impact-grid">
             {impactStories.map((item, index) => (
               <article key={item.title} className="exec-impact-card" style={{ "--i": index } as CSSProperties}>
@@ -335,6 +419,7 @@ export function InteractiveCVApp() {
                   <strong>{item.title}</strong>
                 </div>
                 <div className="exec-impact-icon" aria-hidden="true">{iconSet[index + 2]}</div>
+                <b>Context / action</b>
                 <p>{item.body}</p>
                 <small>{item.result}</small>
               </article>
@@ -343,7 +428,11 @@ export function InteractiveCVApp() {
         </section>
 
         <section id="experience" className="exec-section" data-reveal>
-          <h2 className="exec-section-title">Career Journey</h2>
+          <div className="exec-section-head">
+            <span>02 / Authority Arc</span>
+            <h2 className="exec-section-title">Career Journey</h2>
+            <p>{sectionFrames.journey}</p>
+          </div>
           <div className="exec-journey">
             {currentPractice.map((item, index) => (
               <article key={item.title} className="exec-journey-row exec-current-row" style={{ "--i": index } as CSSProperties}>
@@ -382,15 +471,21 @@ export function InteractiveCVApp() {
             ))}
           </aside>
 
-          <section className="exec-panel exec-matrix">
-            <h2>Expertise Matrix</h2>
-            {strengths.slice(0, 8).map((item, index) => (
-              <div key={item.title} className="exec-meter-row">
-                <span>{item.title}</span>
-                <div className="exec-meter"><i style={{ width: `${92 - index * 4}%` }} /></div>
-                <small>{index < 4 ? "Expert" : "Advanced"}</small>
-              </div>
-            ))}
+          <section id="capability" className="exec-panel exec-matrix exec-capability-map">
+            <h2>Capability Map</h2>
+            <p>{sectionFrames.capability}</p>
+            <div>
+              {capabilityMap.map((group) => (
+                <article key={group.axis}>
+                  <strong>{group.axis}</strong>
+                  <ul>
+                    {group.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
           </section>
 
           <section id="qualifications" className="exec-panel exec-qualifications">
@@ -405,9 +500,18 @@ export function InteractiveCVApp() {
             </ul>
           </section>
 
-          <section className="exec-panel exec-tools">
-            <h2>Digital, Creative & Communication Skills</h2>
-            <p>{digitalSkills.join(" ")}</p>
+          <section id="edge" className="exec-panel exec-tools exec-edge">
+            <h2>The Uncommon Edge</h2>
+            <p>{sectionFrames.edge}</p>
+            <div>
+              {digitalEdge.map((item) => (
+                <article key={item.title}>
+                  <strong>{item.title}</strong>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
+            <small>{digitalSkills.join(" ")}</small>
           </section>
         </section>
 
