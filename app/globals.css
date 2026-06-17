@@ -2870,6 +2870,192 @@ body:has(.exec-page) {
   }
 }
 
+/* Final CV polish pass */
+@media screen {
+  body:has(.exec-page) {
+    overflow-x: hidden;
+  }
+
+  .exec-page {
+    grid-template-columns: 176px minmax(0, 960px);
+    gap: 30px;
+  }
+
+  .exec-sidebar {
+    gap: 14px;
+  }
+
+  .exec-sidebar nav a,
+  .exec-download,
+  .exec-contact a,
+  .exec-contact-download {
+    transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+  }
+
+  .exec-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 999px;
+    background: #c96e32;
+    color: #fffdf9 !important;
+    font-size: 0.85rem;
+    font-weight: 850;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .exec-sidebar nav a:focus-visible,
+  .exec-download:focus-visible,
+  .exec-contact a:focus-visible {
+    outline: 3px solid rgba(201, 110, 50, 0.34);
+    outline-offset: 3px;
+  }
+
+  .exec-download:hover,
+  .exec-contact-download:hover {
+    background: #a95827 !important;
+    color: #fffdf9 !important;
+  }
+
+  .exec-header {
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 310px);
+    padding-top: 48px;
+    padding-bottom: 38px;
+  }
+
+  .exec-strap {
+    max-width: 720px;
+  }
+
+  .exec-contact {
+    align-self: stretch;
+    align-content: end;
+  }
+
+  .exec-contact a,
+  .exec-contact span {
+    border-color: rgba(21, 21, 21, 0.12);
+    box-shadow: 0 1px 0 rgba(21, 21, 21, 0.025);
+  }
+
+  .exec-contact-download {
+    background: #231f1b !important;
+    color: #fffdf9 !important;
+    font-weight: 850;
+    text-align: center;
+  }
+
+  .exec-section {
+    scroll-margin-top: 24px;
+  }
+
+  .exec-section p,
+  .exec-list li {
+    max-width: 82ch;
+  }
+
+  .exec-list {
+    gap: 9px;
+  }
+
+  .exec-list li::before {
+    top: 0.78em;
+    width: 6px;
+    height: 6px;
+  }
+
+  .exec-role {
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .exec-role::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    bottom: 26px;
+    left: 0;
+    width: 2px;
+    border-radius: 999px;
+    background: rgba(201, 110, 50, 0.32);
+  }
+
+  .exec-role:last-child::before {
+    bottom: 0;
+  }
+
+  .exec-role header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+
+  .exec-role h3 {
+    max-width: 72ch;
+  }
+
+  .exec-role header p {
+    display: inline-flex;
+    width: fit-content;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #f3eadf;
+    color: #7b4928;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .exec-page {
+    gap: 18px;
+  }
+
+  .exec-sidebar {
+    grid-template-columns: 1fr auto;
+  }
+
+  .exec-download {
+    min-width: 148px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .exec-header {
+    padding: 30px 22px 26px;
+  }
+
+  .exec-title {
+    margin-top: 14px;
+  }
+
+  .exec-strap {
+    font-size: 0.95rem;
+  }
+
+  .exec-contact a,
+  .exec-contact span {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  .exec-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .exec-list {
+    gap: 11px;
+  }
+
+  .exec-role {
+    padding-left: 16px;
+  }
+}
+
 /* Final cascade lock */
 body:has(.dossier-page),
 .dossier-page {
@@ -6495,5 +6681,79 @@ body:has(.dossier-page) .dossier-impact-result strong {
   body:has(.dossier-page) .dossier-impact-result {
     grid-template-columns: 1fr !important;
     gap: 10px !important;
+  }
+}
+
+/* Absolute final lock for the current executive CV */
+@media screen {
+  body:has(.exec-page) {
+    overflow-x: hidden !important;
+  }
+
+  body:has(.exec-page) .exec-page {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  body:has(.exec-page) .exec-sheet {
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  body:has(.exec-page) .exec-header h1 {
+    width: auto !important;
+    max-width: none !important;
+    overflow-wrap: normal !important;
+  }
+}
+
+@media screen and (min-width: 981px) {
+  body:has(.exec-page) .exec-page {
+    grid-template-columns: 176px minmax(0, 960px) !important;
+    gap: 30px !important;
+    justify-content: center !important;
+    padding: 34px 28px !important;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  body:has(.exec-page) .exec-page {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 18px !important;
+    padding: 16px !important;
+  }
+
+  body:has(.exec-page) .exec-sidebar {
+    position: static !important;
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  body:has(.exec-page) .exec-page {
+    display: block !important;
+    padding: 10px !important;
+  }
+
+  body:has(.exec-page) .exec-sidebar {
+    display: none !important;
+  }
+
+  body:has(.exec-page) .exec-sheet {
+    max-width: 100% !important;
+  }
+
+  body:has(.exec-page) .exec-header {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    padding: 30px 22px 26px !important;
+  }
+
+  body:has(.exec-page) .exec-header h1 {
+    font-size: clamp(3.25rem, 17vw, 4.4rem) !important;
+    line-height: 0.92 !important;
   }
 }

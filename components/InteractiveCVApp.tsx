@@ -144,6 +144,8 @@ const navItems = [
   { href: "#contact", label: "Contact" },
 ];
 
+const downloadHref = "/Mark_OHare_CV_2026_V1.docx";
+
 function BulletList({ items }: { items: string[] }) {
   return (
     <ul className="exec-list">
@@ -164,7 +166,7 @@ export function InteractiveCVApp() {
             <a key={item.href} href={item.href}>{item.label}</a>
           ))}
         </nav>
-        <button type="button" onClick={() => window.print()}>Download Profile</button>
+        <a className="exec-download" href={downloadHref} download>Download Profile</a>
       </aside>
 
       <article className="exec-sheet">
@@ -179,6 +181,7 @@ export function InteractiveCVApp() {
             <a href={`tel:${profile.phone.replaceAll(" ", "")}`}>{profile.phone}</a>
             <span>{profile.location}</span>
             <a href={profile.linkedIn} target="_blank" rel="noreferrer">LinkedIn</a>
+            <a className="exec-contact-download" href={downloadHref} download>Download Profile</a>
           </address>
         </header>
 
