@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-
 const profile = {
   name: "Mark O’Hare",
   title: "Third Sector Operations & People Leader",
@@ -29,36 +27,6 @@ const selectedImpact = [
   "Promoted into senior operational roles within one year at both CERT and Lifelink.",
   "Reported directly to boards and trustees on safeguarding, risk, performance and delivery.",
   "Built partnerships across councils, NHS, schools, police, prisons and third-sector organisations.",
-];
-
-const impactHighlights = [
-  {
-    value: 379,
-    label: "participants supported annually",
-    detail: "Built the CERT delivery model from pilot stage into full regional service delivery.",
-  },
-  {
-    value: "£850k+",
-    label: "continuation funding",
-    detail: "Contributed to multi-year sustainability through clear reporting, delivery assurance and partner confidence.",
-  },
-  {
-    value: 9,
-    label: "pilot partners aligned",
-    detail: "Coordinated the original CERT pilot across local organisations with shared learning and practical delivery.",
-  },
-  {
-    value: 1,
-    suffix: " year",
-    label: "to senior roles",
-    detail: "Promoted quickly at both CERT and Lifelink through visible operational grip and trusted relationships.",
-  },
-];
-
-const impactProof = [
-  "Service redesign from paper concept into live regional delivery.",
-  "Board-level reporting across safeguarding, risk, performance and funding.",
-  "Partnerships across councils, NHS, schools, police, prisons and local organisations.",
 ];
 
 const strengths = [
@@ -163,7 +131,7 @@ const digitalSkills = [
   "Social media management, community engagement and audience communication.",
   "Adobe Creative Suite, professional photography, visual storytelling and brand presentation.",
   "Working knowledge of React and TypeScript, supporting practical digital delivery and automation.",
-  "Practical automation and workflow design, used to make recruitment and service processes clearer.",
+  "AI and automation expert.",
 ];
 
 const navItems = [
@@ -185,77 +153,6 @@ function BulletList({ items }: { items: string[] }) {
         <li key={item}>{item}</li>
       ))}
     </ul>
-  );
-}
-
-function CountUpNumber({
-  value,
-  prefix,
-  suffix,
-}: {
-  value: number | string;
-  prefix?: string;
-  suffix?: string;
-}) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const [displayValue, setDisplayValue] = useState(0);
-  const rawValue = String(value);
-  const targetValue = typeof value === "number" ? value : Number(rawValue.replace(/[^\d]/g, ""));
-  const resolvedPrefix = prefix ?? (rawValue.includes("850") ? "£" : "");
-  const resolvedSuffix = suffix ?? (rawValue.includes("850") ? "k+" : "");
-
-  useEffect(() => {
-    const element = ref.current;
-    if (!element || Number.isNaN(targetValue)) return;
-
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
-      setDisplayValue(targetValue);
-      return;
-    }
-
-    let frameId = 0;
-    const duration = 1100;
-
-    const animate = () => {
-      const startTime = performance.now();
-
-      const tick = (now: number) => {
-        const progress = Math.min((now - startTime) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        setDisplayValue(Math.round(targetValue * eased));
-
-        if (progress < 1) {
-          frameId = requestAnimationFrame(tick);
-        }
-      };
-
-      frameId = requestAnimationFrame(tick);
-    };
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        animate();
-        observer.disconnect();
-      },
-      { threshold: 0.45 },
-    );
-
-    observer.observe(element);
-
-    return () => {
-      observer.disconnect();
-      cancelAnimationFrame(frameId);
-    };
-  }, [targetValue]);
-
-  return (
-    <span ref={ref} className="exec-count-up">
-      {resolvedPrefix}
-      {displayValue.toLocaleString("en-GB")}
-      {resolvedSuffix}
-    </span>
   );
 }
 
@@ -296,38 +193,8 @@ export function InteractiveCVApp() {
         </section>
 
         <section id="impact" className="exec-section">
-          <div className="exec-section-head">
-            <h2>Selected Impact</h2>
-            <p>Evidence of scale, governance and practical service improvement.</p>
-          </div>
-          <div className="exec-impact-showcase" aria-label="Selected impact highlights">
-            <aside className="exec-impact-statement">
-              <span>Operational proof</span>
-              <strong>Practical service leadership with evidence behind it.</strong>
-              <p>
-                I work best where services need steadier structure, clearer reporting and stronger
-                relationships. The record here is built on real delivery: partners aligned, teams
-                supported, risks managed and community-facing work made easier to sustain.
-              </p>
-            </aside>
-            <div className="exec-impact-proof">
-              {impactHighlights.map((item) => (
-                <article key={item.label} className="exec-impact-tile">
-                  <CountUpNumber
-                    value={item.value}
-                    suffix={"suffix" in item ? item.suffix : undefined}
-                  />
-                  <strong>{item.label}</strong>
-                  <p>{item.detail}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-          <ul className="exec-proof-list" aria-label="Supporting evidence">
-            {impactProof.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+          <h2>Selected Impact</h2>
+          <BulletList items={selectedImpact} />
         </section>
 
         <section id="strengths" className="exec-section">
