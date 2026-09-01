@@ -84,9 +84,11 @@ const roles = [
     title: "Earlier leadership, employability & community delivery",
     organisation: "Scotland",
     summary:
-      "Founder, adviser, facilitator and delivery roles across community development, employability, volunteering, justice, advice and youth programmes.",
+      "Founder, adviser, facilitator and delivery roles across community development, employability, volunteering, Citizens Advice, justice, advice and youth programmes.",
     evidence: [
       "Founded Holistic Enterprises Scotland and designed training, employability, wellbeing and youth-development programmes.",
+      "Managed the Citizens Advice Bureau Youth Reachout Project for 14–25 year olds, combining advice, advocacy, outreach, workshops and staff and volunteer coordination.",
+      "Worked as Regional Support Manager & Training Officer across Citizens Advice bureaux, providing second-tier support on complex advice, adviser training, service development and partnership work.",
       "Delivered prison-based employability, mentoring and personal-development programmes including HM Polmont.",
       "Supported governance, safeguarding, volunteering, advice and employability work across community organisations.",
       "Built long-term partnerships with schools, councils, police, prisons, social services and local organisations.",
@@ -97,6 +99,9 @@ const roles = [
 const qualifications = [
   { name: "SVQ Level 5 Learning & Development", level: "SCQF 11" },
   { name: "SVQ Level 4 Mentoring & Leadership", level: "SCQF 10" },
+  { name: "SVQ Level 4 Advice & Guidance", level: "Citizens Advice Bureau" },
+  { name: "Complex & Specialist Adviser Training", level: "Citizens Advice Bureau" },
+  { name: "CAS Specialist Management Training", level: "Citizens Advice Scotland" },
   { name: "HND Community Arts", level: "HND" },
   { name: "Trauma-Informed Practice Facilitator", level: "Professional" },
   { name: "Mental Health First Aid Instructor", level: "Instructor" },
