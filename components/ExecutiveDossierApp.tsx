@@ -34,7 +34,7 @@ const roles = [
     title: "Founder & Lead",
     organisation: "Kelloch",
     summary:
-      "Built a practical third-sector workforce and leadership initiative supporting charities, CICs and social enterprises with hiring, people development, service improvement and clearer decision-making, alongside employment.",
+      "Run Kelloch alongside employment, supporting charities, CICs and social enterprises with recruitment, people development, role design, service improvement and organisational decision-making.",
     evidence: [
       "Created sector-facing recruitment, workforce-planning and leadership resources.",
       "Advised organisations on role design, candidate experience and people decisions.",
@@ -84,7 +84,7 @@ const roles = [
     title: "Earlier leadership, employability & community delivery",
     organisation: "Scotland",
     summary:
-      "Founder, adviser, facilitator and delivery roles across community development, employability, volunteering, Citizens Advice, justice, advice and youth programmes.",
+      "Founder, adviser, facilitator and delivery roles across community development, employability, volunteering, Citizens Advice, justice and youth programmes.",
     evidence: [
       "Founded Holistic Enterprises Scotland and designed training, employability, wellbeing and youth-development programmes.",
       "Managed the Citizens Advice Bureau Youth Reachout Project for 14–25 year olds, combining advice, advocacy, outreach, workshops and staff and volunteer coordination.",
@@ -117,7 +117,7 @@ const digitalSkills = [
 ];
 
 const nav = [
-  ["#brief", "Brief"],
+  ["#brief", "Profile"],
   ["#evidence", "Evidence"],
   ["#career", "Career"],
   ["#credentials", "Credentials"],
@@ -247,8 +247,9 @@ export function ExecutiveDossierApp() {
             <div data-reveal>
               <p className={styles.heroTitle}>Operations & People Leader</p>
               <p className={styles.heroStatement}>
-                I build services that work in the real world: clearer operations, stronger teams,
-                safer delivery, better partnerships and practical systems that hold up under pressure.
+                Most of my career has involved taking services, teams or projects that need to work better
+                and helping make that happen in practice. My experience covers service operations, people
+                management, workforce development, safeguarding, partnerships, governance and organisational improvement.
               </p>
             </div>
 
@@ -283,21 +284,21 @@ export function ExecutiveDossierApp() {
       <section id="brief" className={styles.section}>
         <div className={styles.sectionLabel} data-reveal>
           <span>01</span>
-          <p>Executive brief</p>
+          <p>Profile</p>
         </div>
         <div className={styles.sectionBody}>
           <div className={styles.briefGrid}>
             <div className={styles.briefLead}>
-              <h2 data-reveal>Operator first.<br />Strategic when it matters.</h2>
+              <h2 data-reveal>From frontline delivery<br />to organisational leadership.</h2>
               <p className={styles.largeCopy} data-reveal>
-                More than 25 years across community services, employability, wellbeing,
-                volunteering, justice and organisational development. Experience spans frontline
-                delivery, service management, workforce development, board reporting, safeguarding,
-                programme design, partnerships and digital improvement.
+                I have more than 25 years’ experience across community services, employability, wellbeing,
+                volunteering, justice and organisational development. My career has moved from frontline delivery
+                through project and service management into operations, workforce development and organisational leadership.
               </p>
               <p data-reveal>
-                The consistent thread is implementation: turning ideas, policies and organisational
-                intent into something staff, partners and communities can actually use.
+                Along the way I’ve worked across safeguarding, programme design, board reporting, partnerships,
+                digital improvement and service development. A large part of the job has always been making sure
+                plans can actually be delivered by the people responsible for them.
               </p>
             </div>
 
@@ -320,8 +321,8 @@ export function ExecutiveDossierApp() {
         </div>
         <div className={styles.sectionBody}>
           <div className={styles.evidenceHeader}>
-            <p className={styles.microLabel} data-reveal>Selected proof points</p>
-            <h2 data-reveal>Not leadership by adjective.<br />Leadership by evidence.</h2>
+            <p className={styles.microLabel} data-reveal>Selected evidence</p>
+            <h2 data-reveal>What that has looked like<br />in practice.</h2>
           </div>
 
           <div className={styles.evidenceGrid}>
@@ -336,8 +337,8 @@ export function ExecutiveDossierApp() {
           <div className={styles.pullQuote} data-reveal>
             <span>Leadership approach</span>
             <blockquote>
-              Calm under pressure. Clear with expectations. Strong on relationships.
-              Focused on turning complex people and delivery issues into workable action.
+              I tend to be calm under pressure, clear about expectations and focused on getting difficult
+              people or delivery issues into a form that can actually be dealt with.
             </blockquote>
           </div>
         </div>
@@ -346,17 +347,17 @@ export function ExecutiveDossierApp() {
       <section id="career" className={styles.section}>
         <div className={styles.sectionLabel} data-reveal>
           <span>03</span>
-          <p>Career trajectory</p>
+          <p>Career experience</p>
         </div>
         <div className={styles.sectionBody}>
           <div className={styles.careerHead}>
             <div>
               <p className={styles.microLabel} data-reveal>Selected experience</p>
-              <h2 data-reveal>Built from delivery<br />upwards.</h2>
+              <h2 data-reveal>Career experience.</h2>
             </div>
             <p data-reveal>
-              A career spanning frontline practice, programme development, senior service management,
-              board accountability and independent third-sector workforce work.
+              I started in frontline and community delivery and moved through project, service and operational
+              leadership, while continuing to work directly with staff, partners and services.
             </p>
           </div>
 
@@ -387,13 +388,13 @@ export function ExecutiveDossierApp() {
       <section id="credentials" className={`${styles.section} ${styles.credentialsSection}`}>
         <div className={styles.sectionLabel} data-reveal>
           <span>04</span>
-          <p>Credentials & capability</p>
+          <p>Qualifications & skills</p>
         </div>
         <div className={styles.sectionBody}>
           <div className={styles.credentialsGrid}>
             <div>
               <p className={styles.microLabel} data-reveal>Qualifications</p>
-              <h2 data-reveal>Formal learning,<br />practical application.</h2>
+              <h2 data-reveal>Qualifications &<br />professional development.</h2>
               <div className={styles.credentialLedger}>
                 {qualifications.map((item) => (
                   <div className={styles.credentialRow} key={item.name} data-reveal>
@@ -410,10 +411,10 @@ export function ExecutiveDossierApp() {
 
             <aside className={styles.digitalPanel} data-reveal>
               <p className={styles.microLabel}>Digital + creative capability</p>
-              <h3>Useful technology.<br />No theatre.</h3>
+              <h3>Digital & creative capability.</h3>
               <p>
-                Comfortable translating operational needs into practical digital tools, content,
-                automation and service improvements.
+                I use digital tools where they make the work easier or better, including websites, content,
+                automation, online service design and practical service improvements.
               </p>
               <div className={styles.skillList}>
                 {digitalSkills.map((skill) => <span key={skill}>{skill}</span>)}
