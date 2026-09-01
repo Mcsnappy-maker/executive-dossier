@@ -177,8 +177,8 @@ export function ExecutiveDossierApp() {
       <div className={styles.progressBar} aria-hidden="true" />
 
       <div className={styles.topline}>
-        <a href="#top" className={styles.wordmark} aria-label="Mark O’Hare executive dossier home">
-          <strong>Executive Dossier</strong>
+        <a href="#top" className={styles.wordmark} aria-label="Mark O’Hare Digital CV home">
+          <strong>Digital CV</strong>
         </a>
 
         <button
@@ -199,7 +199,7 @@ export function ExecutiveDossierApp() {
           <span />
           <span />
         </button>
-        <nav className={styles.overlayNav} aria-label="Dossier sections">
+        <nav className={styles.overlayNav} aria-label="Digital CV sections">
           {nav.map(([href, label], index) => (
             <a key={href} href={href} onClick={() => setMenuOpen(false)}>
               <span>0{index + 1}</span>
@@ -228,7 +228,7 @@ export function ExecutiveDossierApp() {
             </h1>
           </div>
 
-          <figure className={styles.heroPortrait} data-reveal>
+          <figure className={styles.heroPortrait}>
             <div className={styles.heroPortraitFrame}>
               <img src="/mark-ohare-headshot.png" alt="Mark O’Hare" />
             </div>
