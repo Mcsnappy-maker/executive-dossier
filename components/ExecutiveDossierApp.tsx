@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import styles from "./ExecutiveDossier.module.css";
 
 const metrics = [
@@ -116,55 +119,135 @@ const nav = [
 ] as const;
 
 export function ExecutiveDossierApp() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const pageRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const nodes = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).dataset.visible = "true";
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = window.requestAnimationFrame(() => {
+        pageRef.current?.style.setProperty("--scroll-y", `${Math.min(window.scrollY, 1200)}px`);
+        raf = 0;
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) window.cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   return (
-    <main className={styles.page}>
+    <main ref={pageRef} className={styles.page}>
       <div className={styles.topline}>
         <a href="#top" className={styles.wordmark} aria-label="Mark O’Hare executive dossier home">
-          <span>MO</span>
           <strong>Executive Dossier</strong>
         </a>
-        <nav className={styles.nav} aria-label="Dossier sections">
-          {nav.map(([href, label]) => (
-            <a key={href} href={href}>{label}</a>
+
+        <button
+          className={styles.menuButton}
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(true)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+
+      <div className={`${styles.menuOverlay} ${menuOpen ? styles.menuOverlayOpen : ""}`} aria-hidden={!menuOpen}>
+        <button className={styles.menuClose} type="button" aria-label="Close navigation" onClick={() => setMenuOpen(false)}>
+          <span />
+          <span />
+        </button>
+        <nav className={styles.overlayNav} aria-label="Dossier sections">
+          {nav.map(([href, label], index) => (
+            <a key={href} href={href} onClick={() => setMenuOpen(false)}>
+              <span>0{index + 1}</span>
+              <strong>{label}</strong>
+            </a>
           ))}
         </nav>
-        <a className={styles.downloadTop} href="/Mark_OHare_CV_2026_V1.docx" download>
+        <a className={styles.overlayDownload} href="/Mark_OHare_CV_2026_V1.docx" download onClick={() => setMenuOpen(false)}>
           Download CV
         </a>
       </div>
 
       <section id="top" className={styles.hero}>
-        <div className={styles.heroPortrait}>
-          <img src="/mark-ohare-headshot.png" alt="Mark O’Hare" />
-          <div className={styles.portraitCaption}>
-            <span>North Lanarkshire · Scotland</span>
-            <span>Available for senior third-sector leadership</span>
-          </div>
+        <div className={styles.heroMeta} data-reveal>
+          <span>Leadership profile / 2026</span>
+          <span>Ref. MO-EXEC-01</span>
         </div>
 
-        <div className={styles.heroCopy}>
-          <div className={styles.documentMeta}>
-            <span>Leadership profile / 2026</span>
-            <span>Ref. MO-EXEC-01</span>
-          </div>
-          <p className={styles.eyebrow}>Third-sector operations · people · service delivery</p>
-          <h1>Mark<br />O’Hare</h1>
-          <p className={styles.heroTitle}>Operations & People Leader</p>
-          <p className={styles.heroStatement}>
-            I build services that work in the real world: clearer operations, stronger teams,
-            safer delivery, better partnerships and practical systems that hold up under pressure.
-          </p>
-          <div className={styles.contactLine}>
-            <a href="mailto:m.ohare@hotmail.co.uk">m.ohare@hotmail.co.uk</a>
-            <a href="tel:07861701490">07861 701490</a>
-            <a href="https://www.linkedin.com/in/mark-o-hare-970433b0" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <div className={styles.heroCanvas}>
+          <p className={styles.eyebrow} data-reveal>Third-sector operations · people · service delivery</p>
+
+          <h1 className={styles.heroName} aria-label="Mark O’Hare">
+            <span className={styles.heroLine} data-reveal>
+              Mark
+              <span className={`${styles.photoTile} ${styles.photoTileOne}`} aria-hidden="true">
+                <img src="/mark-ohare-headshot.png" alt="" />
+              </span>
+            </span>
+            <span className={`${styles.heroLine} ${styles.heroLineSecond}`} data-reveal>
+              O’Hare
+              <span className={`${styles.photoTile} ${styles.photoTileTwo}`} aria-hidden="true">
+                <img src="/mark-ohare-headshot.png" alt="" />
+              </span>
+            </span>
+          </h1>
+
+          <div className={styles.heroLower}>
+            <div data-reveal>
+              <p className={styles.heroTitle}>Operations & People Leader</p>
+              <p className={styles.heroStatement}>
+                I build services that work in the real world: clearer operations, stronger teams,
+                safer delivery, better partnerships and practical systems that hold up under pressure.
+              </p>
+            </div>
+
+            <div className={styles.heroContact} data-reveal>
+              <a href="mailto:m.ohare@hotmail.co.uk">m.ohare@hotmail.co.uk</a>
+              <a href="tel:07861701490">07861 701490</a>
+              <a href="https://www.linkedin.com/in/mark-o-hare-970433b0" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+              <a className={styles.primaryAction} href="/Mark_OHare_CV_2026_V1.docx" download>Download CV</a>
+            </div>
           </div>
         </div>
       </section>
 
       <section className={styles.metricRail} aria-label="Selected career evidence">
         {metrics.map((metric, index) => (
-          <article key={metric.value} className={styles.metric}>
+          <article key={metric.value} className={styles.metric} data-reveal>
             <span className={styles.metricIndex}>0{index + 1}</span>
             <strong>{metric.value}</strong>
             <p>{metric.label}</p>
@@ -172,28 +255,36 @@ export function ExecutiveDossierApp() {
         ))}
       </section>
 
+      <div className={styles.ticker} aria-hidden="true">
+        <div className={styles.tickerTrack}>
+          {[...leadershipAreas, ...leadershipAreas].map((item, index) => (
+            <span key={`${item}-${index}`}>{item}</span>
+          ))}
+        </div>
+      </div>
+
       <section id="brief" className={styles.section}>
-        <div className={styles.sectionLabel}>
+        <div className={styles.sectionLabel} data-reveal>
           <span>01</span>
           <p>Executive brief</p>
         </div>
         <div className={styles.sectionBody}>
           <div className={styles.briefGrid}>
             <div className={styles.briefLead}>
-              <h2>Operator first.<br />Strategic when it matters.</h2>
-              <p className={styles.largeCopy}>
+              <h2 data-reveal>Operator first.<br />Strategic when it matters.</h2>
+              <p className={styles.largeCopy} data-reveal>
                 More than 25 years across community services, employability, wellbeing,
                 volunteering, justice and organisational development. Experience spans frontline
                 delivery, service management, workforce development, board reporting, safeguarding,
                 programme design, partnerships and digital improvement.
               </p>
-              <p>
+              <p data-reveal>
                 The consistent thread is implementation: turning ideas, policies and organisational
                 intent into something staff, partners and communities can actually use.
               </p>
             </div>
 
-            <aside className={styles.mandate} aria-label="Leadership range">
+            <aside className={styles.mandate} aria-label="Leadership range" data-reveal>
               <p className={styles.microLabel}>Leadership range</p>
               <ul>
                 {leadershipAreas.map((item, index) => (
@@ -206,24 +297,26 @@ export function ExecutiveDossierApp() {
       </section>
 
       <section id="evidence" className={`${styles.section} ${styles.darkSection}`}>
-        <div className={styles.sectionLabel}>
+        <div className={styles.sectionLabel} data-reveal>
           <span>02</span>
           <p>Board-level evidence</p>
         </div>
         <div className={styles.sectionBody}>
           <div className={styles.evidenceHeader}>
-            <p className={styles.microLabel}>Selected proof points</p>
-            <h2>Not leadership by adjective.<br />Leadership by evidence.</h2>
+            <p className={styles.microLabel} data-reveal>Selected proof points</p>
+            <h2 data-reveal>Not leadership by adjective.<br />Leadership by evidence.</h2>
           </div>
+
           <div className={styles.evidenceGrid}>
             {boardEvidence.map((item, index) => (
-              <article key={item} className={styles.evidenceItem}>
+              <article key={item} className={styles.evidenceItem} data-reveal>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <p>{item}</p>
               </article>
             ))}
           </div>
-          <div className={styles.pullQuote}>
+
+          <div className={styles.pullQuote} data-reveal>
             <span>Leadership approach</span>
             <blockquote>
               Calm under pressure. Clear with expectations. Strong on relationships.
@@ -234,17 +327,17 @@ export function ExecutiveDossierApp() {
       </section>
 
       <section id="career" className={styles.section}>
-        <div className={styles.sectionLabel}>
+        <div className={styles.sectionLabel} data-reveal>
           <span>03</span>
           <p>Career trajectory</p>
         </div>
         <div className={styles.sectionBody}>
           <div className={styles.careerHead}>
             <div>
-              <p className={styles.microLabel}>Selected experience</p>
-              <h2>Built from delivery<br />upwards.</h2>
+              <p className={styles.microLabel} data-reveal>Selected experience</p>
+              <h2 data-reveal>Built from delivery<br />upwards.</h2>
             </div>
-            <p>
+            <p data-reveal>
               A career spanning frontline practice, programme development, senior service management,
               board accountability and independent third-sector workforce work.
             </p>
@@ -252,11 +345,8 @@ export function ExecutiveDossierApp() {
 
           <div className={styles.timeline}>
             {roles.map((role, index) => (
-              <article className={styles.role} key={`${role.title}-${role.period}`}>
-                <div className={styles.roleRail}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <i />
-                </div>
+              <article className={styles.role} key={`${role.title}-${role.period}`} data-reveal>
+                <div className={styles.roleIndex}>{String(index + 1).padStart(2, "0")}</div>
                 <div className={styles.rolePeriod}>{role.period}</div>
                 <div className={styles.roleMain}>
                   <p className={styles.roleOrg}>{role.organisation}</p>
@@ -264,9 +354,11 @@ export function ExecutiveDossierApp() {
                   <p className={styles.roleSummary}>{role.summary}</p>
                   <details className={styles.details}>
                     <summary>View evidence</summary>
-                    <ul>
-                      {role.evidence.map((item) => <li key={item}>{item}</li>)}
-                    </ul>
+                    <div className={styles.detailsBody}>
+                      <ul>
+                        {role.evidence.map((item) => <li key={item}>{item}</li>)}
+                      </ul>
+                    </div>
                   </details>
                 </div>
               </article>
@@ -276,30 +368,30 @@ export function ExecutiveDossierApp() {
       </section>
 
       <section id="credentials" className={`${styles.section} ${styles.credentialsSection}`}>
-        <div className={styles.sectionLabel}>
+        <div className={styles.sectionLabel} data-reveal>
           <span>04</span>
           <p>Credentials & capability</p>
         </div>
         <div className={styles.sectionBody}>
           <div className={styles.credentialsGrid}>
             <div>
-              <p className={styles.microLabel}>Qualifications</p>
-              <h2>Formal learning,<br />practical application.</h2>
+              <p className={styles.microLabel} data-reveal>Qualifications</p>
+              <h2 data-reveal>Formal learning,<br />practical application.</h2>
               <div className={styles.credentialLedger}>
                 {qualifications.map((item) => (
-                  <div className={styles.credentialRow} key={item.name}>
+                  <div className={styles.credentialRow} key={item.name} data-reveal>
                     <span>{item.name}</span>
                     <strong>{item.level}</strong>
                   </div>
                 ))}
-                <div className={styles.credentialRow}>
+                <div className={styles.credentialRow} data-reveal>
                   <span>Additional CPD & professional development</span>
                   <strong>On request</strong>
                 </div>
               </div>
             </div>
 
-            <aside className={styles.digitalPanel}>
+            <aside className={styles.digitalPanel} data-reveal>
               <p className={styles.microLabel}>Digital + creative capability</p>
               <h3>Useful technology.<br />No theatre.</h3>
               <p>
@@ -315,16 +407,20 @@ export function ExecutiveDossierApp() {
       </section>
 
       <footer className={styles.footer}>
-        <div>
+        <div data-reveal>
           <span className={styles.footerKicker}>Open to conversation</span>
           <h2>Senior operations, people,<br />service or programme leadership.</h2>
         </div>
-        <div className={styles.footerActions}>
+        <div className={styles.footerActions} data-reveal>
           <a href="mailto:m.ohare@hotmail.co.uk">Email Mark</a>
           <a href="/Mark_OHare_CV_2026_V1.docx" download>Download full CV</a>
         </div>
         <p className={styles.footerMeta}>Mark O’Hare · North Lanarkshire, Scotland · 2026</p>
       </footer>
+
+      <div className={styles.accentBand} aria-hidden="true">
+        <span>MO</span>
+      </div>
     </main>
   );
 }
