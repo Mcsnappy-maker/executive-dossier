@@ -133,7 +133,7 @@ export function ExecutiveDossierApp() {
           }
         });
       },
-      { threshold: 0.14, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -5% 0px" }
     );
 
     nodes.forEach((node) => observer.observe(node));
@@ -145,14 +145,22 @@ export function ExecutiveDossierApp() {
     const onScroll = () => {
       if (raf) return;
       raf = window.requestAnimationFrame(() => {
-        pageRef.current?.style.setProperty("--scroll-y", `${Math.min(window.scrollY, 1200)}px`);
+        const y = window.scrollY;
+        const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+        const progress = Math.min(Math.max(y / max, 0), 1);
+        const heroProgress = Math.min(Math.max(y / Math.max(window.innerHeight, 1), 0), 1);
+        pageRef.current?.style.setProperty("--scroll-y", `${Math.min(y, 1400)}px`);
+        pageRef.current?.style.setProperty("--page-progress", `${progress}`);
+        pageRef.current?.style.setProperty("--hero-progress", `${heroProgress}`);
         raf = 0;
       });
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     return () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
       if (raf) window.cancelAnimationFrame(raf);
     };
   }, []);
@@ -166,6 +174,8 @@ export function ExecutiveDossierApp() {
 
   return (
     <main ref={pageRef} className={styles.page}>
+      <div className={styles.progressBar} aria-hidden="true" />
+
       <div className={styles.topline}>
         <a href="#top" className={styles.wordmark} aria-label="Mark O’Hare executive dossier home">
           <strong>Executive Dossier</strong>
@@ -209,22 +219,24 @@ export function ExecutiveDossierApp() {
         </div>
 
         <div className={styles.heroCanvas}>
-          <p className={styles.eyebrow} data-reveal>Third-sector operations · people · service delivery</p>
+          <div className={styles.heroIntro}>
+            <p className={styles.eyebrow} data-reveal>Third-sector operations · people · service delivery</p>
 
-          <h1 className={styles.heroName} aria-label="Mark O’Hare">
-            <span className={styles.heroLine} data-reveal>
-              Mark
-              <span className={`${styles.photoTile} ${styles.photoTileOne}`} aria-hidden="true">
-                <img src="/mark-ohare-headshot.png" alt="" />
-              </span>
-            </span>
-            <span className={`${styles.heroLine} ${styles.heroLineSecond}`} data-reveal>
-              O’Hare
-              <span className={`${styles.photoTile} ${styles.photoTileTwo}`} aria-hidden="true">
-                <img src="/mark-ohare-headshot.png" alt="" />
-              </span>
-            </span>
-          </h1>
+            <h1 className={styles.heroName} aria-label="Mark O’Hare">
+              <span className={styles.heroLine} data-reveal>Mark</span>
+              <span className={`${styles.heroLine} ${styles.heroLineSecond}`} data-reveal>O’Hare</span>
+            </h1>
+          </div>
+
+          <figure className={styles.heroPortrait} data-reveal>
+            <div className={styles.heroPortraitFrame}>
+              <img src="/mark-ohare-headshot.png" alt="Mark O’Hare" />
+            </div>
+            <figcaption>
+              <span>North Lanarkshire · Scotland</span>
+              <span>2026</span>
+            </figcaption>
+          </figure>
 
           <div className={styles.heroLower}>
             <div data-reveal>
