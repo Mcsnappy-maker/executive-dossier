@@ -1,5 +1,5 @@
-import { InteractiveCVApp } from "@/components/InteractiveCVApp";
+import { ExecutiveDossierApp } from "@/components/ExecutiveDossierApp";
 
 export default function HomePage() {
-  return <InteractiveCVApp />;
+  return <ExecutiveDossierApp />;
 }
