@@ -31,7 +31,7 @@ const boardEvidence = [
 const roles = [
   {
     period: "2024 — PRESENT",
-    title: "Founder & Lead",
+    title: "Managing Director",
     organisation: "Kelloch",
     summary:
       "Run Kelloch alongside employment, supporting charities, CICs and social enterprises with recruitment, people development, role design, service improvement and organisational decision-making.",
@@ -84,9 +84,9 @@ const roles = [
     title: "Earlier leadership, employability & community delivery",
     organisation: "Scotland",
     summary:
-      "Founder, adviser, facilitator and delivery roles across community development, employability, volunteering, Citizens Advice, justice and youth programmes.",
+      "Leadership, advisory, facilitation and delivery roles across community development, employability, volunteering, Citizens Advice, justice and youth programmes.",
     evidence: [
-      "Founded Holistic Enterprises Scotland and designed training, employability, wellbeing and youth-development programmes.",
+      "Established Holistic Enterprises Scotland and designed training, employability, wellbeing and youth-development programmes.",
       "Managed the Citizens Advice Bureau Youth Reachout Project for 14–25 year olds, combining advice, advocacy, outreach, workshops and staff and volunteer coordination.",
       "Worked as Regional Support Manager & Training Officer across Citizens Advice bureaux, providing second-tier support on complex advice, adviser training, service development and partnership work.",
       "Delivered prison-based employability, mentoring and personal-development programmes including HM Polmont.",
