@@ -31,14 +31,14 @@ const boardEvidence = [
 const roles = [
   {
     period: '2024 — PRESENT',
-    title: 'Managing Director',
+    title: 'Founder & Lead',
     organisation: 'Kelloch',
     summary:
-      'Run Kelloch alongside employment, supporting charities, CICs and social enterprises with recruitment, people development, role design, service improvement and organisational decision-making.',
+      'Run Kelloch alongside employment, supporting charities, CICs and social enterprises with workforce resources, funding information, workshops and practical guidance on service and organisational improvement.',
     evidence: [
-      'Created sector-facing recruitment, workforce-planning and leadership resources.',
-      'Advised organisations on role design, candidate experience and people decisions.',
-      'Built and operated the website, communications, stakeholder relationships and day-to-day business systems independently.',
+      'Develop workshops, consultancy and guidance covering people development, service and project design, recruitment and workforce decisions.',
+      'Developed Talent Direct, a consent-led recruitment initiative designed to connect organisations with suitable candidates without traditional recruitment fees.',
+      'Manage the website, digital resources, communications, stakeholder relationships, finance and day-to-day operations independently.',
     ],
   },
   {
@@ -226,7 +226,7 @@ export function ExecutiveDossierApp() {
 
         <div className={styles.heroCanvas}>
           <div className={styles.heroIntro}>
-            <p className={styles.eyebrow} data-reveal>Third-sector operations · people · service delivery</p>
+            <p className={styles.eyebrow} data-reveal>Community development · operations · service delivery</p>
 
             <h1 className={styles.heroName} aria-label='Mark O’Hare'>
               <span className={styles.heroLine} data-reveal>Mark</span>
@@ -250,7 +250,7 @@ export function ExecutiveDossierApp() {
               <p className={styles.heroStatement}>
                 Most of my career has involved taking services, teams or projects that need to work better
                 and helping make that happen in practice. My experience covers service operations, people
-                management, workforce development, safeguarding, partnerships, governance and organisational improvement.
+                management, community engagement, safeguarding, partnerships, governance and organisational improvement.
               </p>
             </div>
 
