@@ -46,11 +46,13 @@ const roles = [
     title: 'Lead Clinical Logistics Driver',
     organisation: 'Sciensus',
     summary:
-      'Regulated healthcare logistics role combining time-critical delivery, compliance, route coordination, patient-facing professionalism and practical colleague support.',
+      'Safety-critical clinical logistics role operating in a tightly regulated healthcare environment, where accurate, time-critical delivery protects patient care and there is no margin for error.',
     evidence: [
-      'Maintain reliable service delivery in a tightly controlled healthcare environment.',
-      'Support route cover, shift coordination, compliance checks and defect reporting.',
-      'Bring current frontline insight into operational pressure, judgement and service discipline.',
+      'Maintain current knowledge of relevant legislation, healthcare-logistics regulations, operating procedures and compliance standards through continuous training and professional development.',
+      'Support colleagues to follow legislation, governance controls, safety procedures and service standards consistently across every shift and route.',
+      'Coordinate route cover and shift requirements while completing compliance checks, maintaining audit-ready records and escalating defects or operational risks promptly.',
+      'Help maintain a safe, compliant depot and vehicle fleet through daily checks, defect reporting and close attention to workplace and road safety.',
+      'Bring calm, accountable leadership to frontline pressure, protecting patients, colleagues and the integrity of the clinical supply chain.',
     ],
   },
   {
