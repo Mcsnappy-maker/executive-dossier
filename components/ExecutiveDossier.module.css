@@ -1026,7 +1026,6 @@
 .page[data-enhanced='true'] .heroName [data-reveal]:nth-child(2) { transition-delay: 80ms; }
 
 .page[data-enhanced='true'] .heroName [data-reveal][data-visible="true"] {
-  clip-path: inset(0 0 0 0);
   transform: translateY(0);
 }
 

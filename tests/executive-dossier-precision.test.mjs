@@ -17,6 +17,13 @@ test('reveal effects are progressive enhancement and content is visible without 
   assert.match(component, /dataset\.enhanced = 'true'/);
 });
 
+test('the italic surname is never clipped by the reveal state', () => {
+  assert.doesNotMatch(
+    css,
+    /\.page\[data-enhanced='true'\] \.heroName \[data-reveal\]\[data-visible="true"\]\s*\{[^}]*clip-path/s,
+  );
+});
+
 test('desktop navigation exposes every existing destination and its active state', () => {
   assert.match(component, /className=\{styles\.desktopNav\}/);
   assert.match(component, /aria-current=\{activeSection === href\.slice\(1\) \? 'location' : undefined\}/);
