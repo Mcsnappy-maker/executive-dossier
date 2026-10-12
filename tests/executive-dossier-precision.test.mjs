@@ -68,6 +68,35 @@ test('priority evidence copy and chronology remain intact', () => {
   assert.ok(component.indexOf("organisation: 'CERT") < component.indexOf("organisation: 'Lifelink'"));
 });
 
+test('desktop section rails retain a protected outer inset', () => {
+  assert.match(
+    css,
+    /\.darkSection\s*\{[^}]*grid-template-columns:\s*minmax\(150px,\s*calc\(\(100vw - 1400px\)\/2 \+ 130px\)\)/s,
+  );
+  assert.match(
+    css,
+    /\.darkSection \.sectionLabel\s*\{[^}]*padding-left:\s*max\(34px,\s*calc\(\(100vw - 1400px\)\/2 \+ 14px\)\)/s,
+  );
+});
+
+test('desktop hero reveals evidence sooner without changing mobile height behavior', () => {
+  assert.match(css, /\.hero\s*\{[^}]*min-height:\s*min\(840px,\s*calc\(100svh - 80px\)\)/s);
+  assert.match(css, /@media \(max-width: 720px\)[\s\S]*\.hero\s*\{[^}]*min-height:\s*auto/s);
+});
+
+test('micro typography has an eleven-pixel desktop floor', () => {
+  assert.match(css, /\.desktopNav\s*\{[^}]*font-size:\s*11px/s);
+  assert.match(css, /\.heroMeta\s*\{[^}]*font-size:\s*11px/s);
+  assert.match(css, /\.sectionLabel p\s*\{[^}]*font-size:\s*11px/s);
+  assert.match(css, /\.roleOrg\s*\{[^}]*font-size:\s*11px/s);
+});
+
+test('closing monogram uses the dossier background and a restrained aligned scale', () => {
+  assert.match(css, /\.accentBand\s*\{[^}]*justify-content:\s*flex-end[^}]*background:\s*var\(--bone\)/s);
+  assert.match(css, /\.accentBand span\s*\{[^}]*font-size:\s*clamp\(5rem,\s*12vw,\s*11rem\)/s);
+  assert.match(css, /\.accentBand span\s*\{[^}]*transform:\s*none/s);
+});
+
 test('existing CV destination remains unchanged', () => {
   assert.match(component, /href='\/Mark_OHare_CV_2026_V1\.docx'/);
 });

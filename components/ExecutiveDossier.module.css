@@ -65,7 +65,7 @@
   align-items: center;
   gap: clamp(18px, 2.4vw, 34px);
   margin-left: auto;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -278,8 +278,8 @@
 
 .hero {
   position: relative;
-  min-height: min(920px, 100svh);
-  padding: 90px clamp(24px, 4vw, 64px) 42px;
+  min-height: min(840px, calc(100svh - 80px));
+  padding: 90px clamp(24px, 4vw, 64px) 28px;
   overflow: hidden;
   background: var(--black);
   color: var(--white);
@@ -306,8 +306,8 @@
   padding-bottom: 11px;
   border-bottom: 1px solid var(--line-light);
   color: var(--sage);
-  font-size: 10px;
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -335,7 +335,7 @@
 .footerKicker {
   margin: 0;
   color: var(--gray);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -411,7 +411,7 @@
   padding-top: 9px;
   border-top: 1px solid var(--line-light);
   color: var(--sage);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -502,7 +502,7 @@
 .metricIndex {
   display: block;
   color: var(--gray);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
 }
 
@@ -580,7 +580,7 @@
 .sectionLabel p {
   margin: 8px 0 0;
   color: var(--gray);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -662,7 +662,7 @@
 .darkSection {
   position: relative;
   max-width: none;
-  grid-template-columns: minmax(130px, calc((100vw - 1400px)/2 + 130px)) minmax(0,1fr);
+  grid-template-columns: minmax(150px, calc((100vw - 1400px)/2 + 130px)) minmax(0,1fr);
   background: var(--black);
   color: var(--white);
   border-color: var(--line-light);
@@ -670,7 +670,7 @@
 }
 
 .darkSection .sectionLabel {
-  padding-left: max(0px, calc((100vw - 1400px)/2));
+  padding-left: max(34px, calc((100vw - 1400px)/2 + 14px));
   border-color: var(--line-light);
 }
 
@@ -795,7 +795,7 @@
 .rolePeriod,
 .roleOrg {
   color: var(--gray);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -983,26 +983,30 @@
   padding-top: 14px;
   border-top: 1px solid var(--line-light);
   color: var(--sage);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .accentBand {
-  min-height: 300px;
-  padding: 28px clamp(20px,3.5vw,52px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 220px;
+  padding: 42px max(20px, calc((100vw - 1400px)/2 + 52px));
   overflow: hidden;
-  background: var(--white);
+  border-top: 1px solid var(--line-dark);
+  background: var(--bone);
   color: var(--black);
 }
 
 .accentBand span {
   display: inline-block;
-  font-size: clamp(7rem, 20vw, 18rem);
+  font-size: clamp(5rem, 12vw, 11rem);
   font-weight: 600;
   line-height: 0.72;
   letter-spacing: -0.08em;
-  transform: translate3d(calc(var(--hero-progress) * 32px), calc(var(--scroll-y) * -.006), 0);
+  transform: none;
 }
 
 .page[data-enhanced='true'] [data-reveal] {
@@ -1127,12 +1131,12 @@
   .metric:nth-child(2) { border-right: 0; }
   .metric:nth-child(-n+2) { border-bottom: 1px solid var(--line-dark); }
 
-  .section,
-  .darkSection {
+  .section {
     grid-template-columns: 96px minmax(0,1fr);
   }
 
-  .darkSection .sectionLabel { padding-left: 0; }
+  .darkSection { grid-template-columns: 116px minmax(0,1fr); }
+  .darkSection .sectionLabel { padding-left: 34px; }
   .evidenceHeader,
   .pullQuote { grid-template-columns: 1fr; }
   .role { grid-template-columns: 42px 110px minmax(0,1fr); }
@@ -1289,7 +1293,7 @@
   }
 
   .footerMeta { margin-top: 10px; }
-  .accentBand { min-height: 190px; padding: 20px 18px; }
+  .accentBand { min-height: 140px; padding: 26px 18px; }
 
   .menuOverlay { padding: 22px 18px 34px; }
   .overlayNav a { grid-template-columns: 38px 1fr; }
