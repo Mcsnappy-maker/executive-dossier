@@ -59,12 +59,14 @@ const experience = [
     title: "Lead Clinical Logistics Driver | Sciensus",
     dates: "July 2024 – Present",
     intro:
-      "Regulated healthcare logistics role requiring reliability, compliance, route coordination, patient-facing professionalism and colleague support, alongside day-to-day responsibility for maintaining a factory unit.",
+      "Safety-critical clinical logistics role operating within a tightly regulated healthcare environment, where accurate, time-critical delivery protects patient care and there is no margin for error. Responsible for maintaining rigorous compliance, supporting team adherence to legislation and governance requirements, and upholding health and safety across the depot and vehicle fleet.",
     bullets: [
-      "Maintain high-standard service delivery in a time-critical healthcare environment.",
-      "Support route cover, shift coordination, compliance checks and defect reporting.",
-      "Work within strict compliance expectations where accuracy, judgement and consistency are essential.",
-      "Bring practical insight into frontline service pressure, regulated delivery and operational discipline.",
+      "Deliver clinical products safely, accurately and on schedule, applying disciplined checks and sound judgement in a no-mistake environment.",
+      "Maintain current knowledge of relevant legislation, healthcare-logistics regulations, operating procedures and compliance standards through continuous training and professional development.",
+      "Support colleagues to follow legislation, governance controls, safety procedures and service standards consistently across every shift and route.",
+      "Coordinate route cover and shift requirements while completing compliance checks, maintaining audit-ready records and escalating defects or operational risks promptly.",
+      "Help maintain a safe, compliant depot and vehicle fleet through daily checks, defect reporting and close attention to workplace and road safety.",
+      "Bring calm, accountable leadership to frontline service pressure, protecting patients, colleagues and the integrity of the clinical supply chain.",
     ],
   },
   {
@@ -233,3 +235,4 @@ export function InteractiveCVApp() {
     </main>
   );
 }
+
