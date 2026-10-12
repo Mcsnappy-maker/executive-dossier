@@ -127,10 +127,17 @@ const nav = [
 
 export function ExecutiveDossierApp() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('brief');
   const pageRef = useRef<HTMLElement | null>(null);
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const menuCloseRef = useRef<HTMLButtonElement | null>(null);
+  const menuOverlayRef = useRef<HTMLDivElement | null>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const nodes = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
+    if (!('IntersectionObserver' in window)) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -143,7 +150,12 @@ export function ExecutiveDossierApp() {
       { threshold: 0.1, rootMargin: '0px 0px -5% 0px' }
     );
 
-    nodes.forEach((node) => observer.observe(node));
+    nodes.forEach((node) => {
+      const rect = node.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) node.dataset.visible = 'true';
+      observer.observe(node);
+    });
+    if (pageRef.current) pageRef.current.dataset.enhanced = 'true';
     return () => observer.disconnect();
   }, []);
 
@@ -159,6 +171,11 @@ export function ExecutiveDossierApp() {
         pageRef.current?.style.setProperty('--scroll-y', `${Math.min(y, 1400)}px`);
         pageRef.current?.style.setProperty('--page-progress', `${progress}`);
         pageRef.current?.style.setProperty('--hero-progress', `${heroProgress}`);
+        const currentSection = [...nav]
+          .reverse()
+          .map(([href]) => document.getElementById(href.slice(1)))
+          .find((section) => section && section.getBoundingClientRect().top <= 180);
+        setActiveSection(currentSection?.id ?? 'brief');
         raf = 0;
       });
     };
@@ -174,11 +191,74 @@ export function ExecutiveDossierApp() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    if (!menuOpen) return;
+
+    previousFocusRef.current = document.activeElement as HTMLElement | null;
+    document.body.style.overflow = 'hidden';
+    const backgroundChildren = Array.from(pageRef.current?.children ?? []).filter(
+      (child) => child !== menuOverlayRef.current,
+    );
+    backgroundChildren.forEach((child) => child.setAttribute('inert', ''));
+
+    const focusFrame = window.requestAnimationFrame(() => menuCloseRef.current?.focus());
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setMenuOpen(false);
+        return;
+      }
+      if (event.key !== 'Tab' || !menuOverlayRef.current) return;
+
+      const focusable = Array.from(
+        menuOverlayRef.current.querySelectorAll<HTMLElement>('a[href], button:not([disabled])'),
+      ).filter((element) => element.offsetParent !== null);
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+
     return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.removeEventListener('keydown', onKeyDown);
+      backgroundChildren.forEach((child) => child.removeAttribute('inert'));
       document.body.style.overflow = '';
+      previousFocusRef.current?.focus();
     };
   }, [menuOpen]);
+
+  useEffect(() => {
+    const alignToHash = () => {
+      const id = window.location.hash.slice(1);
+      if (!id) return;
+      const target = document.getElementById(id);
+      if (!target) return;
+      target.scrollIntoView({ block: 'start' });
+      setActiveSection(id);
+    };
+
+    let innerFrame = 0;
+    const frame = window.requestAnimationFrame(() => {
+      innerFrame = window.requestAnimationFrame(alignToHash);
+    });
+    document.fonts?.ready.then(alignToHash);
+    Promise.all(
+      Array.from(document.images, (image) => image.decode().catch(() => undefined)),
+    ).then(alignToHash);
+    window.addEventListener('hashchange', alignToHash);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.cancelAnimationFrame(innerFrame);
+      window.removeEventListener('hashchange', alignToHash);
+    };
+  }, []);
 
   return (
     <main ref={pageRef} className={styles.page}>
@@ -189,7 +269,23 @@ export function ExecutiveDossierApp() {
           <strong>Digital CV</strong>
         </a>
 
+        <nav className={styles.desktopNav} aria-label='Digital CV sections'>
+          {nav.map(([href, label]) => (
+            <a
+              key={href}
+              href={href}
+              aria-current={activeSection === href.slice(1) ? 'location' : undefined}
+            >
+              {label}
+            </a>
+          ))}
+          <a className={styles.desktopDownload} href='/Mark_OHare_CV_2026_V1.docx' download>
+            Download CV
+          </a>
+        </nav>
+
         <button
+          ref={menuButtonRef}
           className={styles.menuButton}
           type='button'
           aria-label='Open navigation'
@@ -202,8 +298,15 @@ export function ExecutiveDossierApp() {
         </button>
       </div>
 
-      <div className={`${styles.menuOverlay} ${menuOpen ? styles.menuOverlayOpen : ''}`} aria-hidden={!menuOpen}>
-        <button className={styles.menuClose} type='button' aria-label='Close navigation' onClick={() => setMenuOpen(false)}>
+      <div
+        ref={menuOverlayRef}
+        className={`${styles.menuOverlay} ${menuOpen ? styles.menuOverlayOpen : ''}`}
+        role='dialog'
+        aria-modal='true'
+        aria-label='Navigation'
+        aria-hidden={!menuOpen}
+      >
+        <button ref={menuCloseRef} className={styles.menuClose} type='button' aria-label='Close navigation' onClick={() => setMenuOpen(false)}>
           <span />
           <span />
         </button>
@@ -366,7 +469,11 @@ export function ExecutiveDossierApp() {
 
           <div className={styles.timeline}>
             {roles.map((role, index) => (
-              <article className={styles.role} key={`${role.title}-${role.period}`} data-reveal>
+              <article
+                className={`${styles.role} ${['CERT · Clackmannanshire Economic Regeneration Trust', 'Lifelink'].includes(role.organisation) ? styles.roleFeatured : ''}`}
+                key={`${role.title}-${role.period}`}
+                data-reveal
+              >
                 <div className={styles.roleIndex}>{String(index + 1).padStart(2, '0')}</div>
                 <div className={styles.rolePeriod}>{role.period}</div>
                 <div className={styles.roleMain}>
@@ -412,7 +519,7 @@ export function ExecutiveDossierApp() {
               </div>
             </div>
 
-            <aside className={styles.digitalPanel} data-reveal>
+            <aside className={`${styles.digitalPanel} ${styles.digitalPanelExpanded}`} data-reveal>
               <p className={styles.microLabel}>Digital + creative capability</p>
               <h3>Digital & creative capability.</h3>
               <p>
