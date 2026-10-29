@@ -100,3 +100,14 @@ test('closing monogram uses the dossier background and a restrained aligned scal
 test('existing CV destination remains unchanged', () => {
   assert.match(component, /href='\/Mark_OHare_CV_2026_V1\.docx'/);
 });
+
+test('council leadership refinements and print access exist', () => {
+  assert.match(component, /CERT · Service transformation/);
+  assert.match(component, /Lifelink · Service continuity/);
+  assert.match(component, /Kelloch · Digital service design/);
+  assert.match(component, /Third Sector Talent Network/);
+  assert.doesNotMatch(component, /Talent Direct/);
+  assert.match(component, /window\.print\(\)/);
+  assert.match(css, /@media print/);
+  assert.match(css, /\.caseStudyGrid/);
+});

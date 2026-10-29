@@ -1158,7 +1158,7 @@
 
   .heroMeta {
     margin-bottom: 24px;
-    font-size: 9px;
+    font-size: 11px;
   }
 
   .heroCanvas { display: block; }
@@ -1346,4 +1346,51 @@
     transform: none !important;
     clip-path: none !important;
   }
+}
+
+/* Council refinement: leadership cases and browser PDF printing. */
+.evidenceAction { width: fit-content; margin-top: 8px; font-size: 13px !important; }
+.evidenceAction:focus-visible, .printAction:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.caseStudyIntro { margin-top: 65px; padding-top: 24px; border-top: 1px solid var(--line-light); }
+.caseStudyIntro h3 { max-width: 800px; margin: 15px 0 0; font-family: "Instrument Serif", Georgia, serif; font-size: clamp(2.5rem, 4.2vw, 4.5rem); font-weight: 400; line-height: 1.05; }
+.caseStudyGrid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin-top: 32px; }
+.caseStudy { min-width: 0; padding: clamp(19px, 2.3vw, 32px); border: 1px solid var(--line-light); }
+.caseStudyTag { margin: 0; font-size: 12px; color: var(--sage); line-height: 1.5; }
+.caseStudy dl { margin: 25px 0 0; }
+.caseStudy dl div + div { margin-top: 25px; }
+.caseStudy dt { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--sage); }
+.caseStudy dd { margin: 8px 0 0; font-size: 15px; font-weight: 300; line-height: 1.55; }
+.printAction { width: fit-content; border: 0; padding: 0; background: transparent; color: inherit; font-family: Times, "Times New Roman", serif; font-size: 15px; text-align: left; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+@media (max-width: 1050px) { .caseStudyGrid { grid-template-columns: 1fr; } .caseStudy { padding: 24px; } }
+@media print {
+  @page { size: A4; margin: 15mm; }
+  html,body { background: white !important; }
+  .page { overflow: visible !important; background: white !important; color: #111 !important; }
+  .topline,.progressBar,.ticker,.heroPortrait,.accentBand,.printAction,.hero::before,.primaryAction,.evidenceAction,.footerActions { display: none !important; }
+  .hero,.darkSection,.footer { min-height: 0 !important; background: white !important; color: #111 !important; }
+  .hero { padding: 0 0 8mm !important; }
+  .heroCanvas,.heroLower,.briefGrid,.evidenceHeader,.careerHead,.credentialsGrid,.footer { display: block !important; }
+  .heroName { font-size: 55pt !important; line-height: 1 !important; }
+  .heroLineSecond { margin-left: 0 !important; }
+  .heroMeta,.heroStatement,.hero .eyebrow,.heroContact,.darkSection .microLabel,.caseStudyTag,.caseStudy dt { color: #222 !important; }
+  .heroContact { margin-top: 8mm !important; }
+  .heroContact a { color: #111 !important; }
+  .section,.darkSection { display: block !important; width: 100% !important; }
+  .sectionLabel,.darkSection .sectionLabel { padding: 8mm 0 0 !important; border: 0 !important; }
+  .sectionBody,.darkSection .sectionBody { padding: 6mm 0 10mm !important; }
+  .briefLead h2,.evidenceHeader h2,.careerHead h2,.credentialsGrid h2,.footer h2 { font-size: 29pt !important; line-height: 1.1 !important; }
+  .metricRail,.evidenceGrid,.caseStudyGrid { display: block !important; }
+  .metric,.evidenceItem,.caseStudy,.role,.credentialRow { break-inside: avoid; page-break-inside: avoid; border-color: #bbb !important; }
+  .metric { min-height: 0 !important; display: inline-block; width: 47%; padding: 4mm 0 !important; }
+  .evidenceItem,.caseStudy { min-height: 0 !important; padding: 4mm 0 !important; color: #111 !important; }
+  .evidenceItem p { margin: 2mm 0 0 !important; }
+  .caseStudy { margin-bottom: 4mm !important; }
+  .caseStudy dl { margin-top: 3mm !important; }
+  .caseStudy dd { color: #111 !important; }
+  .pullQuote { margin-top: 8mm !important; }
+  .role { padding: 5mm 0 !important; }
+  .details summary { display: none !important; }
+  .detailsBody { display: block !important; }
+  .footer { padding: 10mm 0 !important; border-top: 1px solid #bbb !important; }
+  .page[data-enhanced='true'] [data-reveal] { opacity: 1 !important; transform: none !important; clip-path: none !important; }
 }
