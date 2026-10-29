@@ -98,6 +98,7 @@ test('closing monogram uses the dossier background and a restrained aligned scal
 });
 
 test('existing CV destination remains unchanged', () => {
+  assert.match(component, /href='\/Mark_OHare_Leadership_CV_2026\.pdf'/);
   assert.match(component, /href='\/Mark_OHare_CV_2026_V1\.docx'/);
 });
 
@@ -110,4 +111,13 @@ test('council leadership refinements and print access exist', () => {
   assert.match(component, /window\.print\(\)/);
   assert.match(css, /@media print/);
   assert.match(css, /\.caseStudyGrid/);
+});
+
+test('final editorial refinement avoids duplicate ticker and prioritises CERT', () => {
+  assert.doesNotMatch(component, /className={styles\.ticker}/);
+  assert.match(component, /className={styles\.featureOutcome}/);
+  assert.match(component, /participants supported annually by the scaled CERT service/);
+  assert.match(css, /\.caseStudy:first-child\s*\{/);
+  assert.match(css, /\.details summary:focus-visible\s*\{/);
+  assert.doesNotMatch(component, /Additional measurable service outcomes will only be published/);
 });
