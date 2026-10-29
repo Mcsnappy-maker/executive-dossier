@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import styles from './ExecutiveDossier.module.css';
 
 const metrics = [
@@ -8,6 +9,21 @@ const metrics = [
   { value: '£850k+', label: 'Continuation funding contributed to across three years' },
   { value: '379', label: 'Participants supported annually by the scaled CERT model' },
   { value: '9', label: 'Partner organisations in the original multi-agency pilot' },
+];
+
+const caseStudies = [
+ { organisation: 'CERT · Service transformation',
+   challenge: 'Turn a nine-partner employability and wellbeing pilot into a regional delivery model.',
+   contribution: 'Led the pilot and operational rollout, including safeguarding, risk, performance and reporting to the Chair and Board.',
+   outcome: 'The scaled service supported 379 participants annually. I contributed to over £850k in continuation funding across three years.' },
+ { organisation: 'Lifelink · Service continuity',
+   challenge: 'Keep wellbeing support available as services and delivery arrangements changed during COVID-19.',
+   contribution: 'Designed and rolled out the wellbeing portfolio, trained colleagues and helped introduce online delivery through Teams and Zoom.',
+   outcome: 'The delivery model moved online. Additional measurable service outcomes will only be published when independently verified.' },
+ { organisation: 'Kelloch · Digital service design',
+   challenge: 'Make practical workforce and employment resources more accessible to third-sector teams and jobseekers.',
+   contribution: 'Independently built and maintained Third Sector Talent Network, CV Studio, the Learning Hub and related resources.',
+   outcome: 'The resources have been created and made available. Usage and impact claims will be added only when evidence supports them.' },
 ];
 
 const leadershipAreas = [
@@ -37,7 +53,7 @@ const roles = [
       'Run Kelloch alongside employment, supporting charities, CICs and social enterprises with workforce resources, funding information, workshops and practical guidance on service and organisational improvement.',
     evidence: [
       'Develop workshops, consultancy and guidance covering people development, service and project design, recruitment and workforce decisions.',
-      'Developed Talent Direct, a consent-led recruitment initiative designed to connect organisations with suitable candidates without traditional recruitment fees.',
+      'Developed Third Sector Talent Network, a consent-led recruitment initiative designed to connect organisations with suitable candidates without traditional recruitment fees.',
       'Manage the website, digital resources, communications, stakeholder relationships, finance and day-to-day operations independently.',
     ],
   },
@@ -78,13 +94,13 @@ const roles = [
       'Oversaw commissioned service performance, practitioner coordination, safeguarding and quality standards.',
       'Designed and rolled out the wellbeing portfolio and trained the wider delivery team.',
       'Led the move to online wellbeing delivery during COVID-19 using Teams and Zoom.',
-      'Supported a therapeutic workforce ranging from 15 to 100 practitioners as demand changed.',
+      'Supported delivery alongside a practitioner workforce that varied from 15 to 100 with demand; this figure does not represent a claim of direct line management.',
     ],
   },
   {
     period: '2000 — 2020',
     title: 'Earlier leadership, employability & community delivery',
-    organisation: 'Scotland',
+    organisation: 'Citizens Advice, Holistic Enterprises & community programmes',
     summary:
       'Leadership, advisory, facilitation and delivery roles across community development, employability, volunteering, Citizens Advice, justice and youth programmes.',
     evidence: [
@@ -265,11 +281,11 @@ export function ExecutiveDossierApp() {
       <div className={styles.progressBar} aria-hidden='true' />
 
       <div className={styles.topline}>
-        <a href='#top' className={styles.wordmark} aria-label='Mark O’Hare Digital CV home'>
-          <strong>Digital CV</strong>
+        <a href='#top' className={styles.wordmark} aria-label='Mark O’Hare Leadership Dossier home'>
+          <strong>Leadership Dossier</strong>
         </a>
 
-        <nav className={styles.desktopNav} aria-label='Digital CV sections'>
+        <nav className={styles.desktopNav} aria-label='Leadership Dossier sections'>
           {nav.map(([href, label]) => (
             <a
               key={href}
@@ -310,7 +326,7 @@ export function ExecutiveDossierApp() {
           <span />
           <span />
         </button>
-        <nav className={styles.overlayNav} aria-label='Digital CV sections'>
+        <nav className={styles.overlayNav} aria-label='Leadership Dossier sections'>
           {nav.map(([href, label], index) => (
             <a key={href} href={href} onClick={() => setMenuOpen(false)}>
               <span>0{index + 1}</span>
@@ -341,7 +357,7 @@ export function ExecutiveDossierApp() {
 
           <figure className={styles.heroPortrait}>
             <div className={styles.heroPortraitFrame}>
-              <img src='/mark-ohare-headshot.png' alt='Mark O’Hare' />
+              <Image src='/mark-ohare-headshot.png' alt='Mark O’Hare' width={720} height={920} sizes='(max-width: 720px) 68vw, 320px' priority />
             </div>
             <figcaption>
               <span>North Lanarkshire · Scotland</span>
@@ -351,11 +367,11 @@ export function ExecutiveDossierApp() {
 
           <div className={styles.heroLower}>
             <div data-reveal>
-              <p className={styles.heroTitle}>Operations & People Leader</p>
+              <p className={styles.heroTitle}>Third Sector Operations &amp; People Leader</p>
               <p className={styles.heroStatement}>
-                Most of my career has involved taking services, teams or projects that need to work better
-                and helping make that happen in practice. My experience covers service operations, people
-                management, community engagement, safeguarding, partnerships, governance and organisational improvement.
+                I help services, teams and community organisations work better when the challenges are complicated.
+                Over 25 years in community delivery, wellbeing and employability, I have led programmes,
+                supported practitioners, worked with boards and turned plans into services people can use.
               </p>
             </div>
 
@@ -364,6 +380,7 @@ export function ExecutiveDossierApp() {
               <a href='tel:07861701490'>07861 701490</a>
               <a href='https://www.linkedin.com/in/mark-o-hare-970433b0' target='_blank' rel='noreferrer'>LinkedIn ↗</a>
               <a className={styles.primaryAction} href='/Mark_OHare_CV_2026_V1.docx' download>Download CV</a>
+              <a className={styles.evidenceAction} href='#evidence'>View leadership evidence</a>
             </div>
           </div>
         </div>
@@ -423,7 +440,7 @@ export function ExecutiveDossierApp() {
       <section id='evidence' className={`${styles.section} ${styles.darkSection}`}>
         <div className={styles.sectionLabel} data-reveal>
           <span>02</span>
-          <p>Board-level evidence</p>
+          <p>Leadership evidence</p>
         </div>
         <div className={styles.sectionBody}>
           <div className={styles.evidenceHeader}>
@@ -440,6 +457,22 @@ export function ExecutiveDossierApp() {
             ))}
           </div>
 
+          <div className={styles.caseStudyIntro}>
+            <p className={styles.microLabel}>Leadership in practice</p>
+            <h3>The work behind the results.</h3>
+          </div>
+          <div className={styles.caseStudyGrid}>
+            {caseStudies.map((study, index) => (
+              <article key={study.organisation} className={styles.caseStudy}>
+                <p className={styles.caseStudyTag}>0{index + 1} / {study.organisation}</p>
+                <dl>
+                  <div><dt>Challenge</dt><dd>{study.challenge}</dd></div>
+                  <div><dt>My contribution</dt><dd>{study.contribution}</dd></div>
+                  <div><dt>Outcome and evidence</dt><dd>{study.outcome}</dd></div>
+                </dl>
+              </article>
+            ))}
+          </div>
           <div className={styles.pullQuote} data-reveal>
             <span>Leadership approach</span>
             <blockquote>
@@ -541,7 +574,8 @@ export function ExecutiveDossierApp() {
         </div>
         <div className={styles.footerActions} data-reveal>
           <a href='mailto:m.ohare@hotmail.co.uk'>Email Mark</a>
-          <a href='/Mark_OHare_CV_2026_V1.docx' download>Download full CV</a>
+          <a href='/Mark_OHare_CV_2026_V1.docx' download>Download full CV (Word)</a>
+          <button type='button' className={styles.printAction} onClick={() => window.print()}>Print / Save as PDF</button>
         </div>
         <p className={styles.footerMeta}>Mark O’Hare · North Lanarkshire, Scotland · 2026</p>
       </footer>
