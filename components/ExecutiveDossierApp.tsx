@@ -15,15 +15,15 @@ const caseStudies = [
  { organisation: 'CERT · Service transformation',
    challenge: 'Turn a nine-partner employability and wellbeing pilot into a regional delivery model.',
    contribution: 'Led the pilot and operational rollout, including safeguarding, risk, performance and reporting to the Chair and Board.',
-   outcome: 'The scaled service supported 379 participants annually. I contributed to over £850k in continuation funding across three years.' },
+   outcome: 'Contributed to more than £850k in continuation funding over three years through bids, outcome evidence, funding reports and coordinated delivery.' },
  { organisation: 'Lifelink · Service continuity',
    challenge: 'Keep wellbeing support available as services and delivery arrangements changed during COVID-19.',
    contribution: 'Designed and rolled out the wellbeing portfolio, trained colleagues and helped introduce online delivery through Teams and Zoom.',
-   outcome: 'The delivery model moved online. Additional measurable service outcomes will only be published when independently verified.' },
+   outcome: 'Moved wellbeing delivery online during COVID-19 and trained colleagues and practitioners to support continuity of service.' },
  { organisation: 'Kelloch · Digital service design',
    challenge: 'Make practical workforce and employment resources more accessible to third-sector teams and jobseekers.',
    contribution: 'Independently built and maintained Third Sector Talent Network, CV Studio, the Learning Hub and related resources.',
-   outcome: 'The resources have been created and made available. Usage and impact claims will be added only when evidence supports them.' },
+   outcome: 'Built and published a suite of free, practical resources for third-sector organisations and professionals.' },
 ];
 
 const leadershipAreas = [
@@ -94,7 +94,7 @@ const roles = [
       'Oversaw commissioned service performance, practitioner coordination, safeguarding and quality standards.',
       'Designed and rolled out the wellbeing portfolio and trained the wider delivery team.',
       'Led the move to online wellbeing delivery during COVID-19 using Teams and Zoom.',
-      'Supported delivery alongside a practitioner workforce that varied from 15 to 100 with demand; this figure does not represent a claim of direct line management.',
+      'Coordinated commissioned wellbeing services with a practitioner workforce that varied with demand, maintaining attention to quality, safeguarding and continuity.',
     ],
   },
   {
@@ -295,7 +295,7 @@ export function ExecutiveDossierApp() {
               {label}
             </a>
           ))}
-          <a className={styles.desktopDownload} href='/Mark_OHare_CV_2026_V1.docx' download>
+          <a className={styles.desktopDownload} href='/Mark_OHare_Leadership_CV_2026.pdf' download>
             Download CV
           </a>
         </nav>
@@ -334,7 +334,7 @@ export function ExecutiveDossierApp() {
             </a>
           ))}
         </nav>
-        <a className={styles.overlayDownload} href='/Mark_OHare_CV_2026_V1.docx' download onClick={() => setMenuOpen(false)}>
+        <a className={styles.overlayDownload} href='/Mark_OHare_Leadership_CV_2026.pdf' download onClick={() => setMenuOpen(false)}>
           Download CV
         </a>
       </div>
@@ -379,7 +379,7 @@ export function ExecutiveDossierApp() {
               <a href='mailto:m.ohare@hotmail.co.uk'>m.ohare@hotmail.co.uk</a>
               <a href='tel:07861701490'>07861 701490</a>
               <a href='https://www.linkedin.com/in/mark-o-hare-970433b0' target='_blank' rel='noreferrer'>LinkedIn ↗</a>
-              <a className={styles.primaryAction} href='/Mark_OHare_CV_2026_V1.docx' download>Download CV</a>
+              <a className={styles.primaryAction} href='/Mark_OHare_Leadership_CV_2026.pdf' download>Download CV</a>
               <a className={styles.evidenceAction} href='#evidence'>View leadership evidence</a>
             </div>
           </div>
@@ -396,13 +396,6 @@ export function ExecutiveDossierApp() {
         ))}
       </section>
 
-      <div className={styles.ticker} aria-hidden='true'>
-        <div className={styles.tickerTrack}>
-          {[...leadershipAreas, ...leadershipAreas].map((item, index) => (
-            <span key={`${item}-${index}`}>{item}</span>
-          ))}
-        </div>
-      </div>
 
       <section id='brief' className={styles.section}>
         <div className={styles.sectionLabel} data-reveal>
@@ -465,6 +458,12 @@ export function ExecutiveDossierApp() {
             {caseStudies.map((study, index) => (
               <article key={study.organisation} className={styles.caseStudy}>
                 <p className={styles.caseStudyTag}>0{index + 1} / {study.organisation}</p>
+                {index === 0 ? (
+                  <div className={styles.featureOutcome}>
+                    <strong>379</strong>
+                    <span>participants supported annually by the scaled CERT service</span>
+                  </div>
+                ) : null}
                 <dl>
                   <div><dt>Challenge</dt><dd>{study.challenge}</dd></div>
                   <div><dt>My contribution</dt><dd>{study.contribution}</dd></div>
@@ -574,8 +573,8 @@ export function ExecutiveDossierApp() {
         </div>
         <div className={styles.footerActions} data-reveal>
           <a href='mailto:m.ohare@hotmail.co.uk'>Email Mark</a>
-          <a href='/Mark_OHare_CV_2026_V1.docx' download>Download full CV (Word)</a>
-          <button type='button' className={styles.printAction} onClick={() => window.print()}>Print / Save as PDF</button>
+          <a href='/Mark_OHare_Leadership_CV_2026.pdf' download>Download CV (PDF)</a>
+          <a href='/Mark_OHare_CV_2026_V1.docx' download>Detailed CV (Word)</a>
         </div>
         <p className={styles.footerMeta}>Mark O’Hare · North Lanarkshire, Scotland · 2026</p>
       </footer>
