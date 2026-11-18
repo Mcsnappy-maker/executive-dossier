@@ -1,0 +1,3 @@
+# Repository instructions for GitHub Copilot
+
+Before planning or editing, consult `AGENTS.md` and `docs/GITHUB_OPERATING_STANDARD.md` and preserve existing repository guidelines. Never push, merge or deploy to production, delete files/branches, rewrite history or change secrets without explicit authorisation. Test locally first. Keep temporary screenshots, videos, traces, logs and build output out of commits. Use review branches and report verification and risks.

@@ -1,0 +1,3 @@
+# Gemini CLI / Antigravity workspace instructions
+
+Read and apply **AGENTS.md** and **docs/GITHUB_OPERATING_STANDARD.md** before any code, Git or deployment action. Also honour existing .agent/.agents rules and project-specific guidance. Do not change production or delete assets/history without explicit approval. Test locally, avoid temporary evidence in Git, and use short-lived review branches rather than repeated pushes.
