@@ -1,0 +1,3 @@
+# Claude Code project instructions
+
+Read and apply **AGENTS.md** and **docs/GITHUB_OPERATING_STANDARD.md** before any code, Git or deployment action. Preserve existing project-specific instructions. In particular, do not push to production, merge, deploy, delete or rewrite history without explicit approval. Test locally first, avoid committing screenshots/build output, and publish coherent batches for review. If instructions conflict, report the conflict and follow the safer restriction.
