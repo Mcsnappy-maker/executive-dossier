@@ -135,6 +135,13 @@ test('the evidence rail stacks before long metric values can force mobile overfl
   );
 });
 
+test('the long funding metric has a cell-safe desktop type scale', () => {
+  assert.match(
+    css,
+    /\.metric:nth-child\(2\) strong\s*\{[^}]*font-size:\s*clamp\(3\.5rem,\s*5\.2vw,\s*5\.2rem\)/s,
+  );
+});
+
 test('micro typography has an eleven-pixel desktop floor', () => {
   assert.match(css, /\.desktopNav\s*\{[^}]*font-size:\s*11px/s);
   assert.match(css, /\.heroMeta\s*\{[^}]*font-size:\s*11px/s);

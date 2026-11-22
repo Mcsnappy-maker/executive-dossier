@@ -548,6 +548,12 @@
   letter-spacing: -0.05em;
 }
 
+@media (min-width: 721px) {
+  .metric:nth-child(2) strong {
+    font-size: clamp(3.5rem, 5.2vw, 5.2rem);
+  }
+}
+
 .metric p {
   max-width: 225px;
   margin: 22px 0 0;
