@@ -295,9 +295,14 @@ export function ExecutiveDossierApp() {
               {label}
             </a>
           ))}
-          <a className={styles.desktopDownload} href='/Mark_OHare_Leadership_CV_2026.pdf' download>
-            Download CV
-          </a>
+          <div className={styles.desktopDownloads} aria-label='CV downloads'>
+            <a className={styles.desktopDownload} href='/Mark_OHare_Leadership_CV_2026.pdf' download>
+              CV PDF
+            </a>
+            <a className={styles.desktopDetailedDownload} href='/Mark_OHare_CV_2026_V1.docx' download>
+              Detailed CV
+            </a>
+          </div>
         </nav>
 
         <button
@@ -334,9 +339,14 @@ export function ExecutiveDossierApp() {
             </a>
           ))}
         </nav>
-        <a className={styles.overlayDownload} href='/Mark_OHare_Leadership_CV_2026.pdf' download onClick={() => setMenuOpen(false)}>
-          Download CV
-        </a>
+        <div className={styles.overlayDownloads} aria-label='CV downloads'>
+          <a className={styles.overlayDownload} href='/Mark_OHare_Leadership_CV_2026.pdf' download onClick={() => setMenuOpen(false)}>
+            CV PDF
+          </a>
+          <a className={`${styles.overlayDownload} ${styles.overlayDetailedDownload}`} href='/Mark_OHare_CV_2026_V1.docx' download onClick={() => setMenuOpen(false)}>
+            Detailed CV
+          </a>
+        </div>
       </div>
 
       <section id='top' className={styles.hero}>
@@ -379,7 +389,8 @@ export function ExecutiveDossierApp() {
               <a href='mailto:m.ohare@hotmail.co.uk'>m.ohare@hotmail.co.uk</a>
               <a href='tel:07861701490'>07861 701490</a>
               <a href='https://www.linkedin.com/in/mark-o-hare-970433b0' target='_blank' rel='noreferrer'>LinkedIn ↗</a>
-              <a className={styles.primaryAction} href='/Mark_OHare_Leadership_CV_2026.pdf' download>Download CV</a>
+              <a className={styles.primaryAction} href='/Mark_OHare_Leadership_CV_2026.pdf' download>Download CV (PDF)</a>
+              <a className={styles.secondaryCVAction} href='/Mark_OHare_CV_2026_V1.docx' download>Download detailed CV (Word)</a>
               <a className={styles.evidenceAction} href='#evidence'>View leadership evidence</a>
             </div>
           </div>
@@ -469,6 +480,13 @@ export function ExecutiveDossierApp() {
                   <div><dt>My contribution</dt><dd>{study.contribution}</dd></div>
                   <div><dt>Outcome and evidence</dt><dd>{study.outcome}</dd></div>
                 </dl>
+                {index === 0 ? (
+                  <div className={styles.researchEvidence}>
+                    <p>Research evidence</p>
+                    <span>Mark O’Hare is listed as a REALITIES co-investigator for pre-employability in Clackmannanshire.</span>
+                    <a href='https://measuringhumanity.org/wp-content/uploads/2023/12/Reframing-REALITIES-asset-hubs.pdf' target='_blank' rel='noreferrer'>Read the REALITIES asset hubs research paper (PDF) ↗</a>
+                  </div>
+                ) : null}
               </article>
             ))}
           </div>
