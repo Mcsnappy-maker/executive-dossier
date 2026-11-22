@@ -4,7 +4,8 @@ const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
   assetPrefix: "./",
-  typedRoutes: true
+  typedRoutes: true,
+  images: { unoptimized: true }
 };
 
 export default nextConfig;
