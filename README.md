@@ -1,47 +1,99 @@
-# Signal Deck
+# Mark O'Hare Executive Dossier
 
-Signal Deck is a private, high-end command centre for operators managing multiple inboxes, brands, and social channels from one workspace.
+The live personal leadership dossier is deployed at
+[executive-dossier-kohl.vercel.app](https://executive-dossier-kohl.vercel.app/#top).
 
-## Current scope
+This README is the handover record for Antigravity and future contributors. Read it
+before making design or content changes.
 
-- `Today`, `Inbox`, `Create`, `Channels`, and `Library` views
-- `Workspace -> Channels -> Accounts` information architecture
-- Attention Board, Channel Pulse, Draft + Queue, and right-rail operator tools
-- A dark editorial dashboard direction for the standalone product shell
+## Guardrails
 
-## Stack
+- Preserve the existing visible copy, meaning, case-study claims and functionality unless
+  the site owner specifically asks to change them.
+- The site may be visually evolved, but it is **not** a Kelloch-branded site. Do not
+  introduce Kelloch colours, logos or its visual identity.
+- Keep the restrained editorial design language; avoid generic gradients, excessive
+  decoration, new badges and heavy card/shadow treatments.
+- Prefer small shared-component or token-level changes over page-specific overrides.
+- Do not deploy changes to production without the owner's explicit approval.
+
+## Current implemented state (22 November 2026)
+
+### CV access
+
+Both CV formats are intentionally available in the main points of entry:
+
+| Location | Concise CV | Detailed CV |
+| --- | --- | --- |
+| Desktop header | `CV PDF` | `Detailed CV` |
+| Mobile navigation | `CV PDF` | `Detailed CV` |
+| Hero contact area | `Download CV (PDF)` | `Download detailed CV (Word)` |
+| Footer | `Download CV (PDF)` | `Detailed CV (Word)` |
+
+Do not remove either download without explicit approval. Their canonical assets are:
+
+- `/public/Mark_OHare_Leadership_CV_2026.pdf`
+- `/public/Mark_OHare_CV_2026_V1.docx`
+
+### Research evidence
+
+The featured CERT case study includes a compact **Research evidence** block. It links to
+the [REALITIES Asset Hubs paper](https://measuringhumanity.org/wp-content/uploads/2023/12/Reframing-REALITIES-asset-hubs.pdf), which lists Mark O'Hare as a co-investigator for
+pre-employability in Clackmannanshire and discusses CERT / Positive Moves in the
+Clackmannanshire material.
+
+The implemented on-page wording is deliberately factual and restrained. Do not expand
+or rewrite it without checking the primary paper and receiving content approval.
+
+### Recent production release
+
+- Pull request [#6](https://github.com/Mcsnappy-maker/executive-dossier/pull/6),
+  **Expose detailed CV and CERT research evidence**, was squash-merged to `main`.
+- Production commit: `6a0c1daccd1a36d34efdf5260e154901474acf06`.
+- Vercel deployment completed successfully.
+- The live page returned HTTP 200 and contains both CV destinations and the REALITIES
+  paper link.
+
+## Technology
 
 - Next.js 15
 - TypeScript
-- CSS design tokens in `app/globals.css`
+- CSS Modules and global CSS tokens
+- Vercel deployment via the GitHub `main` branch
 
-## Run locally
-
-```powershell
-npm.cmd install
-npm.cmd run dev
-```
-
-Build for production:
+## Local development
 
 ```powershell
-npm.cmd run build
-npm.cmd run start
+npm ci
+npm run dev
 ```
 
-## Notes
+Before opening a pull request or requesting release approval, run:
 
-This repository now contains the standalone Signal Deck product shell. Connector logic, OAuth flows, data sync, and Supabase-backed persistence can be layered on next without inheriting the previous project model.
+```powershell
+npm test
+npm run lint
+npm run typecheck
+npm run build
+```
 
-## Leadership dossier quality checks
-Run `npm ci`, `npm run lint`, `npm run typecheck`, `npm test` and `npm run build` before release. The GitHub Actions pull-request workflow runs the same checks.
+The PR workflow runs the same quality gates. For a visual change, also check the header,
+hero, featured CERT card, navigation and footer at desktop and mobile widths.
 
-The existing Word CV remains at `/Mark_OHare_CV_2026_V1.docx`. The added **Print / Save as PDF** action uses the browser print dialog; it is not a pre-generated downloadable PDF.
+## Relevant implementation files
 
-Before public release, verify qualification titles and SCQF levels, attribution of claims, responsive screenshots, print output and the content of the Word document. Legacy stylesheet cleanup is intentionally deferred until visual regression checks can be completed.
+- `app/components/ExecutiveDossierApp.tsx` — page structure, navigation, CV downloads
+  and case-study research block.
+- `app/components/ExecutiveDossierApp.module.css` — dossier-specific visual styles.
+- `public/` — downloadable CV assets and other public files.
+- `tests/executive-dossier-precision.test.mjs` — regression assertions, including both
+  CV paths and REALITIES research evidence.
 
-## Editorial finishing pass
+## Release workflow
 
-The first case study (CERT) is intentionally featured while Lifelink and Kelloch remain supporting evidence. The duplicate animated skills ticker has been removed; existing restrained hero/scroll motion remains unchanged.
-
-The main CV link now targets `/Mark_OHare_Leadership_CV_2026.pdf`, a concise two-page downloadable leadership CV derived from the supplied detailed Word CV. The original DOCX remains available as a secondary detailed download. The legacy print stylesheet remains for readers who choose to print the webpage; it is not the primary PDF experience.
+1. Work on a dedicated branch.
+2. Preserve copy unless expressly authorised to edit it.
+3. Run the checks above and visually inspect affected shared components.
+4. Open a pull request; wait for GitHub checks and the Vercel preview to pass.
+5. Merge and deploy only after the owner explicitly asks to push live.
+6. Verify production status and the changed live-page elements after deployment.
