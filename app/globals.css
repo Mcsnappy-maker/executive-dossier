@@ -1,16 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap");
 
 :root {
-  --orange: #e8620a;
-  --ink: #111111;
-  --paper: #f9f8f6;
+  --accent: #7a3045;
+  --ink: #12233b;
+  --paper: #f2eee5;
   --white: #ffffff;
-  --line: #d9d0c6;
-  --line-strong: #b7a998;
-  --muted: #5f5851;
-  --footer: #1e1e1e;
-  --magenta: #b1137d;
-  --cyan: #108b9a;
+  --line: #c9c3bb;
+  --line-strong: #8e98a5;
+  --muted: #6d7886;
+  --footer: #12233b;
   --font-display: "Cormorant Garamond";
   --font-body: "Manrope";
 }
@@ -26,9 +24,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    linear-gradient(90deg, rgba(232, 98, 10, 0.06) 0, rgba(232, 98, 10, 0.06) 84px, transparent 84px),
-    var(--paper);
+  background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body), "Segoe UI", sans-serif;
 }
@@ -89,7 +85,7 @@ button {
 .site-mark-rule {
   width: 8px;
   min-height: 132px;
-  background: var(--orange);
+  background: var(--accent);
   flex: 0 0 auto;
 }
 
@@ -190,8 +186,8 @@ button {
 }
 
 .top-nav-link-active {
-  border-color: var(--orange);
-  background: rgba(232, 98, 10, 0.06);
+  border-color: var(--accent);
+  background: rgba(122, 48, 69, 0.06);
 }
 
 .page-stack,
@@ -268,7 +264,7 @@ button {
 }
 
 .hero-panel-head span {
-  color: var(--orange);
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -300,11 +296,11 @@ button {
 }
 
 .hero-stat-magenta strong {
-  color: var(--magenta);
+  color: var(--accent);
 }
 
 .hero-stat-cyan strong {
-  color: var(--cyan);
+  color: var(--muted);
 }
 
 .section-head,
@@ -369,8 +365,8 @@ button {
 
 .role-card-active,
 .pathway-row-active {
-  border-color: var(--orange);
-  background: rgba(232, 98, 10, 0.05);
+  border-color: var(--accent);
+  background: rgba(122, 48, 69, 0.05);
 }
 
 .need-row,
@@ -399,8 +395,8 @@ button {
 
 .need-chip-active,
 .summary-badge {
-  border-color: var(--orange);
-  color: var(--orange);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .overview-grid {
@@ -434,8 +430,8 @@ button {
 .primary-button,
 .primary-link {
   padding: 0 18px;
-  border-color: var(--orange);
-  background: var(--orange);
+  border-color: var(--accent);
+  background: var(--accent);
   color: var(--white);
 }
 
@@ -507,7 +503,7 @@ button {
   font-family: var(--font-display), Georgia, serif;
   font-size: 3rem;
   line-height: 0.9;
-  color: var(--orange);
+  color: var(--accent);
 }
 
 .route-copy,
@@ -3384,7 +3380,7 @@ body:has(.dossier-page),
 .cv-nav a:hover,
 .cv-contact-list a:hover,
 .cv-proof-card:hover strong {
-  color: var(--orange);
+  color: var(--accent);
 }
 
 .cv-nav a:hover,
@@ -3392,8 +3388,8 @@ body:has(.dossier-page),
 .cv-filter-button:hover,
 .cv-role-button:hover,
 .cv-proof-card:hover {
-  border-color: rgba(232, 98, 10, 0.36);
-  background: rgba(232, 98, 10, 0.05);
+  border-color: rgba(122, 48, 69, 0.36);
+  background: rgba(122, 48, 69, 0.05);
 }
 
 .cv-contact-card,
@@ -3524,8 +3520,8 @@ body:has(.dossier-page),
 .cv-question-button-active,
 .cv-filter-button-active,
 .cv-role-button-active {
-  border-color: rgba(232, 98, 10, 0.42);
-  background: rgba(232, 98, 10, 0.08);
+  border-color: rgba(122, 48, 69, 0.42);
+  background: rgba(122, 48, 69, 0.08);
 }
 
 .cv-answer-card h3,
@@ -3602,7 +3598,7 @@ body:has(.dossier-page),
   height: 10px;
   margin-top: 8px;
   border-radius: 999px;
-  background: var(--orange);
+  background: var(--accent);
 }
 
 .cv-current-grid,
@@ -3621,7 +3617,7 @@ body:has(.dossier-page),
 }
 
 .cv-current-relevance {
-  color: var(--orange);
+  color: var(--accent);
   font-weight: 700;
 }
 

@@ -10,9 +10,53 @@ const css = await readFile(
   new URL('../components/ExecutiveDossier.module.css', import.meta.url),
   'utf8',
 );
+const globalCss = await readFile(
+  new URL('../app/globals.css', import.meta.url),
+  'utf8',
+);
+const nextConfig = await readFile(
+  new URL('../next.config.ts', import.meta.url),
+  'utf8',
+);
+
+test('the static export uses an export-safe image configuration', () => {
+  assert.match(nextConfig, /output:\s*["']export["']/);
+  assert.match(nextConfig, /images:\s*\{\s*unoptimized:\s*true\s*\}/s);
+});
+
+test('the approved midnight, ivory, oxblood and steel palette is the only brand palette', () => {
+  assert.match(css, /--midnight:\s*#12233b/i);
+  assert.match(css, /--ivory:\s*#f2eee5/i);
+  assert.match(css, /--oxblood:\s*#7a3045/i);
+  assert.match(css, /--steel:\s*#6d7886/i);
+  assert.doesNotMatch(
+    `${css}\n${globalCss}`,
+    /#e8620a|#108b9a|#b1137d|rgba?\(\s*232\s*,\s*98\s*,\s*10/i,
+  );
+});
+
+test('the operational briefing hero and evidence rail use the approved hierarchy', () => {
+  assert.match(css, /\.topline\s*\{[^}]*background:\s*rgba\(242,\s*238,\s*229,/s);
+  assert.match(css, /\.hero\s*\{[^}]*background:\s*var\(--ivory\)[^}]*color:\s*var\(--midnight\)/s);
+  assert.match(css, /\.heroName\s*\{[^}]*font-family:\s*"DM Sans"[^}]*font-weight:\s*600/s);
+  assert.match(css, /\.heroPortraitFrame\s*\{[^}]*border:\s*clamp\([^}]*var\(--oxblood\)/s);
+  assert.match(css, /\.primaryAction\s*\{[^}]*background:\s*var\(--oxblood\)/s);
+  assert.match(css, /\.metric strong\s*\{[^}]*color:\s*var\(--oxblood\)/s);
+});
+
+test('dark-surface metadata remains legible and the source portrait edge is masked', () => {
+  assert.match(css, /\.evidenceItem span\s*\{[^}]*color:\s*var\(--sage\)/s);
+  assert.match(css, /\.heroPortrait img\s*\{[^}]*scale\(1\.1\)/s);
+});
+
+test('the featured evidence card avoids an artificial full-height content gap', () => {
+  assert.doesNotMatch(css, /\.caseStudy:first-child dl\s*\{[^}]*margin-top:\s*auto/s);
+  assert.match(css, /\.caseStudy:first-child dl\s*\{[^}]*margin-top:\s*clamp\(/s);
+});
 
 test('reveal effects are progressive enhancement and content is visible without JavaScript', () => {
   assert.doesNotMatch(css, /\.page \[data-reveal\]\s*\{[^}]*opacity:\s*0/s);
+  assert.match(css, /\.page \[data-reveal\]\s*\{[^}]*opacity:\s*1[^}]*transform:\s*none/s);
   assert.match(css, /\.page\[data-enhanced=['"]true['"]\] \[data-reveal\]/);
   assert.match(component, /dataset\.enhanced = 'true'/);
 });
@@ -82,6 +126,13 @@ test('desktop section rails retain a protected outer inset', () => {
 test('desktop hero reveals evidence sooner without changing mobile height behavior', () => {
   assert.match(css, /\.hero\s*\{[^}]*min-height:\s*min\(840px,\s*calc\(100svh - 80px\)\)/s);
   assert.match(css, /@media \(max-width: 720px\)[\s\S]*\.hero\s*\{[^}]*min-height:\s*auto/s);
+});
+
+test('the evidence rail stacks before long metric values can force mobile overflow', () => {
+  assert.match(
+    css,
+    /@media \(max-width: 480px\)[\s\S]*\.metricRail\s*\{[^}]*grid-template-columns:\s*1fr/s,
+  );
 });
 
 test('micro typography has an eleven-pixel desktop floor', () => {
