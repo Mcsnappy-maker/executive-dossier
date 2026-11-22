@@ -160,6 +160,19 @@ test('existing CV destination remains unchanged', () => {
   assert.match(component, /href='\/Mark_OHare_CV_2026_V1\.docx'/);
 });
 
+test('both the abbreviated and detailed CV are available from the top navigation', () => {
+  assert.match(component, /className=\{styles\.desktopDownloads\}/);
+  assert.match(component, /CV PDF/);
+  assert.match(component, /Detailed CV/);
+  assert.match(component, /className=\{styles\.overlayDownloads\}/);
+});
+
+test('the CERT case study links to the verified REALITIES research evidence', () => {
+  assert.match(component, /measuringhumanity\.org\/wp-content\/uploads\/2023\/12\/Reframing-REALITIES-asset-hubs\.pdf/);
+  assert.match(component, /Mark O’Hare is listed as a REALITIES co-investigator/);
+  assert.match(component, /styles\.researchEvidence/);
+});
+
 test('council leadership refinements and PDF download exist', () => {
   assert.match(component, /CERT · Service transformation/);
   assert.match(component, /Lifelink · Service continuity/);
